@@ -1,5 +1,5 @@
 {
-  "name": "@mfb/async-renderer",
+  "name": "@mfbtech/react-async-renderer",
   "version": "1.2.1",
   "description": "Utility for rendering a loading component while waiting for an asynchronous operation to complete",
   "author": "MFB Technologies, Inc.",
