@@ -1,4 +1,4 @@
-# Change Log - @mfb/async-renderer
+# Change Log - @mfbtech/react-async-renderer
 
 This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be manually modified.
 
