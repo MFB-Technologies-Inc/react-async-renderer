@@ -1,20 +1,43 @@
 {
   "name": "@mfb/async-renderer",
   "version": "1.2.1",
-  "description": "Utility for rendering async data in React",
+  "description": "Utility for rendering a loading component while waiting for an asynchronous operation to complete",
+  "author": "MFB Technologies, Inc.",
+  "homepage": "https://github.com/MFB-Technologies-Inc/async-renderer",
+  "private": true,
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "asynchronous",
+    "async",
+    "await",
+    "tsx",
+    "typescript",
+    "html",
+    "sass",
+    "functional",
+    "components",
+    "render",
+    "javascript",
+    "react-component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MFB-Technologies-Inc/async-renderer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MFB-Technologies-Inc/async-renderer/issues"
+  },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "rimraf ./lib && tsc --project tsconfig.prod.json && npm run build:css",
     "build:css": "sass --no-source-map src/components:lib/components",
     "lint": "eslint ./src/",
-    "generate-pipelines": "generate-pipeline -d ./pipeline-data.json -p util -t pr",
-    "test:azure": "jest --reporters=jest-standard-reporter --coverage",
     "test": "jest --watch",
     "fix-formatting": "prettier --write --config ../../prettier.config.js ./src/",
     "check-formatting": "prettier --check --config ../../prettier.config.js ./src/"
   },
-  "author": "MFB Technologies, Inc.",
   "devDependencies": {
     "@types/node": "^14.17.6",
     "@types/jest": "^27.4.0",
