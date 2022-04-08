@@ -8,7 +8,7 @@
       "comments": {
         "patch": [
           {
-            "comment": "Changes to accomodate modularization"
+            "comment": "Changes to accommodate modularization"
           },
           {
             "comment": "Change eslint configuration."

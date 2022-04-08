@@ -7,7 +7,7 @@ Wed, 16 Mar 2022 01:48:17 GMT
 
 ### Patches
 
-- Changes to accomodate modularization
+- Changes to accommodate modularization
 - Change eslint configuration.
 
 ## 1.2.0
