@@ -1,9 +1,0 @@
-{
-  "PROJECT_NAME": "@mfb/async-renderer",
-  "PROJECT_WORKING_DIRECTORY": "utils/async-renderer",
-  "SONAR_ORGANIZATION": "mfbtech",
-  "SONAR_PROJECT_KEY": "mfbtech_Syzygy_Web_App_align-ts_asyncRenderer",
-  "SONAR_PROJECT_NAME": "TS Utils Async Renderer",
-  "SONAR_SOURCE_DIRECTORY": "./utils/async-renderer",
-  "WHITE_SOURCE_PROJECT_NAME": "TSAsyncRenderer"
-}
