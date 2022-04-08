@@ -31,7 +31,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "rimraf ./lib && tsc --project tsconfig.prod.json && npm run build:css",
+    "build": "rimraf ./lib && tsc && npm run build:css",
     "build:css": "sass --no-source-map src/components:lib/components",
     "lint": "eslint ./src/",
     "test": "jest --watch",
