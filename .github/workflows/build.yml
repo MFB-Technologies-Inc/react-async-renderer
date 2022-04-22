@@ -41,7 +41,6 @@ jobs:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
-          # TODO: add sonar cloud secrets
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
@@ -53,5 +52,4 @@ jobs:
         uses: mercari/Whitesource-Scan-Action@v1.0.0
         with:
           wssUrl: https://saas.whitesourcesoftware.com/agent?ctxId=gs5cnna7eyzxsuq94jficzk091k4aphvv8rhgut5gkw8i
-          # TODO: add white source secrets
           apiKey: ${{ secrets.WSS_API_KEY }}
