@@ -1,7 +1,7 @@
 {
   "name": "@mfbtech/react-async-renderer",
   "version": "1.2.1",
-  "description": "Utility for rendering a loading component while waiting for an asynchronous operation to complete",
+  "description": "Utilities for rendering JSX with respect to one or more asynchronous operations.",
   "author": "MFB Technologies, Inc.",
   "homepage": "https://github.com/MFB-Technologies-Inc/react-async-renderer",
   "private": true,
