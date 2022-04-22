@@ -1,5 +1,7 @@
 # React Async Renderer
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mfbtech_Syzygy_Web_App_align-ts_asyncRenderer&metric=alert_status&token=997661041de9f3486f374035a937bda621a25e88)](https://sonarcloud.io/summary/new_code?id=mfbtech_Syzygy_Web_App_align-ts_asyncRenderer)
+
 Utilities for rendering JSX with respect to one or more asynchronous operations.
 
 ## Installation
