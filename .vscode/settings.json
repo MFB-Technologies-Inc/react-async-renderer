@@ -23,6 +23,8 @@
         "**/settings.json",
         "**/.gitignore",
         "**/.env*",
+        "**/sonar-project.properties",
+        "**/.github/**/*",
         "**/*.yml"
       ],
       "exclude": ["jsonc", "json", "markdown"]
