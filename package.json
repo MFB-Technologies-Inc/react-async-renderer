@@ -34,6 +34,7 @@
     "build": "rimraf ./lib && tsc --project ./tsconfig.prod.json && npm run build:css",
     "build:css": "sass --no-source-map src/components:lib/components",
     "lint": "eslint ./src/",
+    "test:ci": "jest --reporters=jest-standard-reporter --coverage",
     "test": "jest --watch",
     "fix-formatting": "prettier --write --config ../../prettier.config.js ./src/",
     "check-formatting": "prettier --check --config ../../prettier.config.js ./src/"
