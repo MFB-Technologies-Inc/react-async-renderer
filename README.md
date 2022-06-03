@@ -86,6 +86,16 @@ These other utility functions can be used to simplify the logic around `createAs
 - `getCascadedAsyncState`: Reduces a chain of asynchronous request objects down one asynchronous request object.
 - `getOptimisticAsyncLoadState`: Converts its arguments into an optimistic asynchronous request object such that if the arguments indicate a pending asynchronous request and a fulfilled asynchronous request, then the result is a fulfilled asynchronous request object.
 
+## Publishing
+
+1. Create a new branch with change log updates and a version bump.
+2. Create and merge that new branch into the `main` branch.
+3. [Publish a new Github release](https://docs.github.com/en/enterprise-cloud@latest/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release) with a new release tag off of the `main` branch.
+
+> The release tag should be in the format `v<package.json version number>` (e.g. v1.2.1).
+
+> Publishing a new Github release will trigger a Github action to publish the new release to NPM.
+
 ## Changelog
 
 [Changelog](./CHANGELOG.md)
