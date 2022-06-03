@@ -45,8 +45,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: > 
-            - sonar.exclusions=**/__tests__/**/*,**/__mocks__/**/*
-            - sonar.javascript.lcov.reportPaths=coverage/lcov.info
+            sonar.exclusions=**/__tests__/**/*,**/__mocks__/**/*
+            sonar.javascript.lcov.reportPaths=coverage/lcov.info
       
       - name: White source scan
         uses: mercari/Whitesource-Scan-Action@v1.0.0
