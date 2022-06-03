@@ -6,8 +6,8 @@ $size: 30px;
 
 .spinner {
   position: relative;
-  top: calc(50% - #{math.div($size, 2)});
-  left: calc(50% - #{math.div($size, 2)});
+  top: calc(50% - math.div(#{$size}, 2));
+  left: calc(50% - math.div(#{$size}, 2));
   width: $size;
   height: $size;
   animation: spinner 0.75s linear infinite;
