@@ -44,8 +44,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       
-      - name: White source scan
-        uses: mercari/Whitesource-Scan-Action@v1.0.0
-        with:
-          wssUrl: https://saas.whitesourcesoftware.com/agent?ctxId=gs5cnna7eyzxsuq94jficzk091k4aphvv8rhgut5gkw8i
-          apiKey: ${{ secrets.WSS_API_KEY }}
+      # TODO: #2: add at a later time
+      # - name: White source scan
+      #   uses: mercari/Whitesource-Scan-Action@v1.0.0
+      #   with:
+      #     wssUrl: https://saas.whitesourcesoftware.com/agent?ctxId=gs5cnna7eyzxsuq94jficzk091k4aphvv8rhgut5gkw8i
+      #     apiKey: ${{ secrets.WSS_API_KEY }}
