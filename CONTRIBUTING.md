@@ -8,5 +8,6 @@
 4. Use the GitHub tool to generate the release notes.
 5. Rename "Full Changelog" to "Commit Changelog".
 6. On a new line, add "**Full Changelog**: `https://github.com/MFB-Technologies-Inc/react-async-renderer/blob/<new tag>/CHANGELOG.md`", replacing `<new tag>` with the tag for this release.
+7. Select "Publish release".
 
 > Publishing a new Github release will trigger the publish Github action, which publishes the new release to NPM.
