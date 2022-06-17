@@ -17,6 +17,16 @@ jobs:
         with: 
           node-version: '16'
       
-      - uses: JS-DevTools/npm-publish@v1
+      - name: Install packages
+        run: npm install
+      
+      - name: Check formatting
+        run: npm run check-formatting
+
+      - name: Run unit tests and generate report
+        run: npm run test:ci
+
+      - name: Publish package
+        uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
