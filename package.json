@@ -1,0 +1,65 @@
+{
+  "name": "@mfbtech/react-async-renderer",
+  "version": "1.2.1",
+  "description": "Utilities for rendering JSX with respect to one or more asynchronous operations.",
+  "author": "MFB Technologies, Inc.",
+  "homepage": "https://github.com/MFB-Technologies-Inc/react-async-renderer",
+  "private": true,
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "asynchronous",
+    "async",
+    "await",
+    "tsx",
+    "typescript",
+    "html",
+    "sass",
+    "functional",
+    "components",
+    "render",
+    "javascript",
+    "react-component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MFB-Technologies-Inc/react-async-renderer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MFB-Technologies-Inc/react-async-renderer/issues"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf ./lib && tsc --project ./tsconfig.prod.json && npm run build:css",
+    "build:css": "sass --no-source-map src/components:lib/components",
+    "lint": "eslint ./src/",
+    "test:ci": "jest --reporters=jest-standard-reporter --coverage",
+    "test": "jest --watch",
+    "fix-formatting": "prettier --write --config ../../prettier.config.js ./src/",
+    "check-formatting": "prettier --check --config ../../prettier.config.js ./src/"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^14.17.6",
+    "@types/react": "^17.0.15",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "eslint": "^8.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "27.1.0",
+    "jest-standard-reporter": "^2.0.0",
+    "prettier": "^2.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "sass": "^1.35.2",
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

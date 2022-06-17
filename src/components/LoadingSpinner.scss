@@ -1,0 +1,50 @@
+// Copyright 2022 MFB Technologies, Inc.
+
+@use "sass:math";
+
+$size: 30px;
+
+.spinner {
+  position: relative;
+  top: calc(50% - math.div(#{$size}, 2));
+  left: calc(50% - math.div(#{$size}, 2));
+  width: $size;
+  height: $size;
+  animation: spinner 0.75s linear infinite;
+
+  svg {
+    position: relative;
+    width: $size;
+    height: $size;
+    fill: linear-gradient(to top, rgba(gray, 0) 0%, gray 100%);
+    animation: spinner 0.7s linear infinite;
+  }
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(50deg);
+    }
+    20% {
+      transform: rotate(100deg);
+    }
+    30% {
+      transform: rotate(150deg);
+    }
+    40% {
+      transform: rotate(200deg);
+    }
+    50% {
+      transform: rotate(250deg);
+    }
+    100% {
+      transform: rotate(350deg);
+    }
+  }
+
+  .alt-text {
+    display: none;
+  }
+}

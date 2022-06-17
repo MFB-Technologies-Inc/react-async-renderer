@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "streetsidesoftware.code-spell-checker",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "psioniq.psi-header",
+    "dbaeumer.vscode-eslint",
+    "ms-vsliveshare.vsliveshare"
+  ]
+}

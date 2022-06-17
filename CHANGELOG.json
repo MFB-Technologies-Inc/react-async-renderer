@@ -1,0 +1,82 @@
+{
+  "name": "@mfbtech/react-async-renderer",
+  "entries": [
+    {
+      "version": "1.2.1",
+      "tag": "@mfbtech/react-async-renderer_v1.2.1",
+      "date": "Wed, 16 Mar 2022 01:48:17 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Changes to accommodate modularization"
+          },
+          {
+            "comment": "Change eslint configuration."
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.2.0",
+      "tag": "@mfbtech/react-async-renderer_v1.2.0",
+      "date": "Thu, 20 Jan 2022 15:51:53 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "update redux toolkit to 1.7, typescript to 4.5"
+          },
+          {
+            "comment": "'Update pipeline'"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "add formatting, add linting, and fix any errors."
+          },
+          {
+            "comment": "update dependencies and change pipeline yaml to use Node.js v16."
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@mfb/pipeline-scripts\" from `~1.0.1` to `~1.1.0`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.1.1",
+      "tag": "@mfbtech/react-async-renderer_v1.1.1",
+      "date": "Tue, 26 Oct 2021 15:41:27 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add animated spinner"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.1.0",
+      "tag": "@mfbtech/react-async-renderer_v1.1.0",
+      "date": "Mon, 04 Oct 2021 20:45:24 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Re-generate pipeline script"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "add utility for optimistically converting a server SRO into an asynchronous state."
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@mfb/pipeline-scripts\" from `~1.0.0` to `~1.0.1`"
+          }
+        ]
+      }
+    }
+  ]
+}
