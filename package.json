@@ -43,7 +43,8 @@
     "test:ci": "jest --reporters=jest-standard-reporter --coverage",
     "test": "jest --watch",
     "fix-formatting": "prettier --write --config ../../prettier.config.js ./src/",
-    "check-formatting": "prettier --check --config ../../prettier.config.js ./src/"
+    "check-formatting": "prettier --check --config ../../prettier.config.js ./src/",
+    "package": "npm pack --pack-destination ./packed"
   },
   "devDependencies": {
     "@testing-library/react": "^12.0.0",
