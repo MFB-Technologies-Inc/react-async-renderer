@@ -1,4 +1,4 @@
-// Copyright 2021 MFB Technologies, Inc.
+// Copyright 2022 MFB Technologies, Inc.
 
 export { LoadingSpinner } from "./components/LoadingSpinner"
 import { AsyncRequestStatus } from "./enumerations"
