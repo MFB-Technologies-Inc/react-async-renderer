@@ -5,3 +5,12 @@
 .App {
   text-align: center;
 }
+.success {
+  color: green
+}
+.info {
+  color: blue;
+}
+.error {
+  color: red;
+}
