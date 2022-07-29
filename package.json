@@ -29,6 +29,13 @@
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "lib/",
+    "CHANGELOG.md",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "build": "rimraf ./lib && tsc --project ./tsconfig.prod.json && npm run build:css",
     "build:css": "sass --no-source-map src/components:lib/components",
