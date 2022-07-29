@@ -86,10 +86,6 @@ These other utility functions can be used to simplify the logic around `createAs
 - `getCascadedAsyncState`: Reduces a chain of asynchronous request objects down one asynchronous request object.
 - `getOptimisticAsyncLoadState`: Converts its arguments into an optimistic asynchronous request object such that if the arguments indicate a pending asynchronous request and a fulfilled asynchronous request, then the result is a fulfilled asynchronous request object.
 
-## Contributing
-
-[Contributing](./CONTRIBUTING.md)
-
 ## Changelog
 
 [Changelog](./CHANGELOG.md)
