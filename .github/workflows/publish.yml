@@ -20,9 +20,9 @@ jobs:
       - name: Install packages
         run: npm install
       
-      - name: Check formatting
-        run: npm run check-formatting
-
+      - name: Build project and dependencies
+        run: npm run build
+      
       - name: Run unit tests and generate report
         run: npm run test:ci
 
