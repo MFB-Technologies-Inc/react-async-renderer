@@ -16,8 +16,11 @@ At the core of this package is `createAsyncRenderer`, which renders specific JSX
 
 ```tsx
 function useMyData() {
+  // Setup status state to reflect the state of your long running process
   const [status, setStatus] = useState<AsyncRequestStatus>(AsyncRequestStatus.INIT)
+  // Setup error state for any errors associated with your long running process
   const [error, setError] = useState<null | string>(null)
+  // Setup data state for any data returned from your long running process
   const [data, setData] = useState<null | string>(null)
 
   // Logic to kick off a request for data and update local state respectively...
@@ -31,6 +34,7 @@ function useMyData() {
 
 function MyDataComponent() {
   const myData = useMyData()
+  // Create a renderer for your long running process
   const loadingRenderer = createAsyncRenderer({
     status: myData.status,
     error: myData.error,
@@ -86,7 +90,7 @@ These other utility functions can be used to simplify the logic around `createAs
 - `getCascadedAsyncState`: Reduces a chain of asynchronous request objects down one asynchronous request object.
 - `getOptimisticAsyncLoadState`: Converts its arguments into an optimistic asynchronous request object such that if the arguments indicate a pending asynchronous request and a fulfilled asynchronous request, then the result is a fulfilled asynchronous request object.
 
-Checkout the [example application](./example/README.md) for more information.
+Checkout the [example application](./example/README.md).
 
 ## License
 
