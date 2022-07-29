@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mfbtech/react-async-renderer": "file:..",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "web-vitals": "^2.1.4"
@@ -15,8 +16,8 @@
     "@types/node": "^18.6.2",
     "@types/react": "^17.0.48",
     "@types/react-dom": "^17.0.17",
-    "typescript": "^4.7.4",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "typescript": "^4.7.4"
   },
   "scripts": {
     "start": "react-scripts start",
