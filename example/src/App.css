@@ -3,14 +3,12 @@
  */
 
 .App {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
   text-align: center;
+  max-width: 1024px;
 }
-.success {
-  color: green
-}
-.info {
-  color: blue;
-}
-.error {
-  color: red;
+.wrapper {
+  margin: auto 10px;
 }
