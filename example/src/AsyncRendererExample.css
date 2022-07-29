@@ -1,0 +1,13 @@
+/*
+ *  Copyright 2022 MFB Technologies, Inc.
+ */
+
+.success {
+  color: green
+}
+.info {
+  color: blue;
+}
+.error {
+  color: red;
+}
