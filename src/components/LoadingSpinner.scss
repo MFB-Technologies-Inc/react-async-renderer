@@ -6,6 +6,7 @@ $size: 30px;
 
 .spinner {
   position: relative;
+  // TODO: #9: address build warnings
   top: calc(50% - math.div(#{$size}, 2));
   left: calc(50% - math.div(#{$size}, 2));
   width: $size;

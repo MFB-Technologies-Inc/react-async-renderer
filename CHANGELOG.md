@@ -2,6 +2,16 @@
 
 This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be manually modified.
 
+## 1.3.0
+Fri, 12 Aug 2022 09:12:00 GMT
+
+### Minor changes
+
+- Fixed the publish action
+- Added an example application
+- Remove contributing document and added the license to the readme
+- Restrict the files that are published
+
 ## 1.2.1
 Wed, 16 Mar 2022 01:48:17 GMT
 

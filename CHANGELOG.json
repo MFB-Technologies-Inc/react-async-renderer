@@ -2,6 +2,27 @@
   "name": "@mfbtech/react-async-renderer",
   "entries": [
     {
+      "version": "1.3.0",
+      "tag": "@mfbtech/react-async-renderer_v1.3.0",
+      "date": "Fri, 12 Aug 2022 09:12:00 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Fixed the publish action"
+          },
+          {
+            "comment": "Added an example application"
+          },
+          {
+            "comment": "Remove contributing document and added the license to the readme"
+          },
+          {
+            "comment": "Restrict the files that are published"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.2.1",
       "tag": "@mfbtech/react-async-renderer_v1.2.1",
       "date": "Wed, 16 Mar 2022 01:48:17 GMT",
