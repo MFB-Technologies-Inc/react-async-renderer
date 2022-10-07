@@ -2,9 +2,9 @@
 
 import './index.css';
 import { App } from './App';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { StrictMode } from 'react';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById("root")
-);
+const container = document.getElementById('root');
+const root = createRoot(container!); // non-null assertion because we use TypeScript (recommended by react)
+root.render(<StrictMode><App /></StrictMode>);
