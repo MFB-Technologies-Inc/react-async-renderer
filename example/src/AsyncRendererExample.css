@@ -2,12 +2,21 @@
  *  Copyright 2022 MFB Technologies, Inc.
  */
 
-.success {
-  color: green
+.renderer-result {
+  display: inline-block;
+  padding: 2px 5px;
 }
-.info {
-  color: blue;
+.info {  
+  color: white;
+  background-color: blue;
+}
+.loading {
+  background-color: yellow;
+}
+.success {
+  color: white;
+  background-color: green
 }
 .error {
-  color: red;
+  background-color: red;
 }
