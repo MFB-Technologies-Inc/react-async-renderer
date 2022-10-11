@@ -37,13 +37,13 @@ export function AsyncRendererExample() {
       <div>
         {renderer((args) => {
           return (
-            <p className='success'>{args.data}</p>
+            <p className='renderer-result success'>{args.data}</p>
           )
         },
           {
-            onInit: () => (<p className='info'>Waiting for long running process to start...</p>),
-            onLoading: () => (<p className='info'>custom spinner...</p>),
-            onCompletedWithError: (props) => (<p className='error'>{props.errorMessage ?? "error"}</p>)
+            onInit: () => (<p className='renderer-result info'>Waiting for long running process to start...</p>),
+            onLoading: () => (<p className='renderer-result loading'>custom spinner...</p>),
+            onCompletedWithError: (props) => (<p className='renderer-result error'>{props.errorMessage ?? "error"}</p>)
           })}
       </div>
     </div>
