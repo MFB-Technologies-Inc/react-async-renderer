@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim AS base-with-deps
 ARG USERNAME=vscode
-RUN apt-get update && apt-get upgrade -y && apt-get install -y curl git
+RUN apt-get update && apt-get upgrade -y && apt-get install -y curl git sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && useradd -ms /bin/bash -G sudo $USERNAME
 USER $USERNAME
