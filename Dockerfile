@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim AS base-with-deps
 ARG USERNAME=vscode
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get upgrade -y && apt-get install -y curl git
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash \
     && . ~/.nvm/nvm.sh \
     && nvm install --lts=hydrogen
