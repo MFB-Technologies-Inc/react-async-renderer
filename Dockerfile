@@ -1,11 +1,12 @@
-FROM node:16-bullseye AS base-with-deps
-
+FROM debian:bullseye-slim AS base-with-deps
 ARG USERNAME=vscode
-
-# setup the vscode user for the developer
+RUN apt-get update && apt-get install -y curl
 RUN groupadd -r $USERNAME \
     && useradd --no-log-init -rm -d /home/$USERNAME -s /bin/bash -g $USERNAME $USERNAME
 USER $USERNAME
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash \
+    && . ~/.nvm/nvm.sh \
+    && nvm install --lts=hydrogen
 WORKDIR /home/$USERNAME
 
 # copy local repo into a volume
