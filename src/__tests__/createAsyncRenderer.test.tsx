@@ -1,7 +1,7 @@
 // Copyright 2022 MFB Technologies, Inc.
 
 import { createAsyncRenderer } from "../createAsyncRenderer"
-import { AsyncRequestStatus } from "../enumerations"
+import { AsyncRequestStatusEnum } from "../enumerations"
 
 const onCompletedWithErrorSpy = jest.fn()
 const onCompletedSuccessfullySpy = jest.fn()
@@ -14,7 +14,7 @@ beforeEach(() => {
 
 it("renders onCompletedSuccessfully when the operation has been completed", () => {
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.FULFILLED,
+    status: AsyncRequestStatusEnum.FULFILLED,
     error: null
   })
 
@@ -26,7 +26,7 @@ it("renders onCompletedSuccessfully when the operation has been completed", () =
 it("renders onCompletedSuccessfully with the args passed to the hook", () => {
   const expectedData = { myTestData: "foo" }
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.FULFILLED,
+    status: AsyncRequestStatusEnum.FULFILLED,
     error: null,
     onCompletedSuccessfullyArgs: expectedData
   })
@@ -41,7 +41,7 @@ it("renders onCompletedSuccessfully with the args passed to the hook", () => {
 it("renders onCompletedWithError when the operation has completed with an error", () => {
   const errorMessageMock = "foo"
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.ERROR,
+    status: AsyncRequestStatusEnum.ERROR,
     error: errorMessageMock
   })
 
@@ -58,7 +58,7 @@ it("renders onCompletedWithError when the operation has completed with an error"
 it("renders onCompletedWithError when the on completed successfully args are null", () => {
   const onCompletedSuccessfullyArgs: any = null
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.FULFILLED,
+    status: AsyncRequestStatusEnum.FULFILLED,
     error: null,
     onCompletedSuccessfullyArgs
   })
@@ -74,7 +74,7 @@ it("renders onCompletedWithError when the on completed successfully args are nul
 it("renders onCompletedWithError when the on completed successfully args are undefined", () => {
   const onCompletedSuccessfullyArgs: any = undefined
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.FULFILLED,
+    status: AsyncRequestStatusEnum.FULFILLED,
     error: null,
     onCompletedSuccessfullyArgs
   })
@@ -90,7 +90,7 @@ it("renders onCompletedWithError when the on completed successfully args are und
 it("can render a generic error component if onCompletedWithError is not specified", () => {
   const errorMessageMock = "foo"
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.ERROR,
+    status: AsyncRequestStatusEnum.ERROR,
     error: errorMessageMock
   })
 
@@ -101,7 +101,7 @@ it("can render a generic error component if onCompletedWithError is not specifie
 
 it("renders onLoading when the operation is pending", () => {
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.PENDING,
+    status: AsyncRequestStatusEnum.PENDING,
     error: null
   })
 
@@ -114,7 +114,7 @@ it("renders onLoading when the operation is pending", () => {
 
 it("can render a generic loading component if onLoading is not specified", () => {
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.PENDING,
+    status: AsyncRequestStatusEnum.PENDING,
     error: null
   })
 
@@ -125,7 +125,7 @@ it("can render a generic loading component if onLoading is not specified", () =>
 
 it("renders onInit when the operation has been initialized", () => {
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.INIT,
+    status: AsyncRequestStatusEnum.INIT,
     error: null
   })
 
@@ -138,7 +138,7 @@ it("renders onInit when the operation has been initialized", () => {
 
 it("can render a generic loading component if onInit is not specified", () => {
   const render = createAsyncRenderer({
-    status: AsyncRequestStatus.INIT,
+    status: AsyncRequestStatusEnum.INIT,
     error: null
   })
 

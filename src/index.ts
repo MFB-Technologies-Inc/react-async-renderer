@@ -1,26 +1,26 @@
 // Copyright 2022 MFB Technologies, Inc.
 
-import { AsyncRequestStatus } from "./enumerations"
+import { AsyncRequestStatusEnum } from "./enumerations"
 
 type INonErrorState = {
   status:
-  | AsyncRequestStatus.INIT
-  | AsyncRequestStatus.PENDING
-  | AsyncRequestStatus.FULFILLED
+    | typeof AsyncRequestStatusEnum.INIT
+    | typeof AsyncRequestStatusEnum.PENDING
+    | typeof AsyncRequestStatusEnum.FULFILLED
   error: null
 }
 
 type IErrorState = {
-  status: AsyncRequestStatus.ERROR
+  status: typeof AsyncRequestStatusEnum.ERROR
   error: string
 }
 
+export { AsyncRequestStatusEnum } from "./enumerations"
 export { LoadingSpinner } from "./components/LoadingSpinner"
 export {
   createAsyncRenderer,
   createAsyncUiModelRenderer
 } from "./createAsyncRenderer"
-export { AsyncRequestStatus } from "./enumerations"
 export * from "./utils"
 /**
  * Base type for a ui model that depends on async loading
@@ -29,3 +29,4 @@ export * from "./utils"
 export type AsyncUiModel<T extends Record<string, any> | null> =
   | ({ state: T } & INonErrorState)
   | ({ state: T } & IErrorState)
+export type { AsyncRequestStatus } from "./enumerations"
