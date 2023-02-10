@@ -25,7 +25,8 @@
         "**/.env*",
         "**/sonar-project.properties",
         "**/.github/**/*",
-        "**/*.yml"
+        "**/*.yml",
+        "**/Dockerfile"
       ],
       "exclude": ["jsonc", "json", "markdown"]
     },

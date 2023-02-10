@@ -5,6 +5,7 @@
     "esbenp.prettier-vscode",
     "psioniq.psi-header",
     "dbaeumer.vscode-eslint",
-    "ms-vsliveshare.vsliveshare"
+    "ms-vsliveshare.vsliveshare",
+    "davidanson.vscode-markdownlint"
   ]
 }
