@@ -26,7 +26,8 @@
       "**/sonar-project.properties",
       "**/.github/**/*",
       "**/*.yml",
-      "**/.prettierignore"
+      "**/.prettierignore",
+      "**/Dockerfile"
     ],
     "exclude": ["jsonc", "json", "markdown"]
   },
