@@ -16,6 +16,11 @@
             "comment": "Added support for React v18"
           }
         ],
+        "patch": [
+          {
+            "comment": "Resolve Json5 security warnings"
+          }
+        ],
         "none": [
           {
             "comment": "Added a docker development environment"

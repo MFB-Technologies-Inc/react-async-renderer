@@ -13,6 +13,10 @@ Fri, 24 Feb 2023 09:52:00 GMT
 
 - Added support for React v18
 
+### Patch changes
+
+- Resolve Json5 security warnings
+
 ## 1.3.0
 Fri, 12 Aug 2022 09:12:00 GMT
 
