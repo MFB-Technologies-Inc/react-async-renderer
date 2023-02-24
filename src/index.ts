@@ -1,12 +1,9 @@
 // Copyright 2022 MFB Technologies, Inc.
 
-import { AsyncRequestStatusEnum } from "./enumerations"
+import { AsyncRequestStatusEnum, AsyncRequestStatus } from "./enumerations"
 
 type INonErrorState = {
-  status:
-    | typeof AsyncRequestStatusEnum.INIT
-    | typeof AsyncRequestStatusEnum.PENDING
-    | typeof AsyncRequestStatusEnum.FULFILLED
+  status: Exclude<AsyncRequestStatus, "error">
   error: null
 }
 
