@@ -1,12 +1,13 @@
 # Docker
 
-Run these commands to setup the dev env, which is a copy of the local repo as-is in a volume and a container attached to that volume:
-
-1. `docker build --tag mfbtech-react-async-renderer-dev-env .`
-1. `docker run --name mfbtech-react-async-renderer-dev-env -td mfbtech-react-async-renderer-dev-env`
-
-Now attach to the container using vscode and the remote explorer extension.
-
->
-> Deleting the container will delete the volume as well, so make sure you have all of your work pushed before deleting the container.
->
+1. Generate an SSH key and add it to GitHub.
+1. Clone the repository.
+1. Run `eval "$(ssh-agent)"`.
+1. Run `ssh-add`.
+1. Run `docker build --ssh default --pull -t mfb-async-renderer-dev-env .`.
+1. Run `docker create --mount type=bind,src=${HOME}/.ssh,target=/home/vscode/.ssh --name mfb-async-renderer-dev-env-active -h mfb-async-renderer-dev-env -it mfb-async-renderer-dev-env`.
+1. Install the "Remote Development" extension pack in VS Code.
+1. Navigate to Remote Explorer in the VSCode sidebar.
+1. Select Containers from the drop down at the top.
+1. Attach to the align-dev-env container.
+1. Click Open Folder and open the align-ts folder.

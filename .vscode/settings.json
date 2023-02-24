@@ -1,65 +1,65 @@
 {
-    "editor.tabSize": 2,
-    "editor.detectIndentation": true,
-    "typescript.tsdk": "./node_modules/typescript/lib",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.rulers": [100],
-    "psi-header.templates": [
-      {
-        "language": "*",
-        "template": [" Copyright <<year>> <<company>>"]
-      }
-    ],
-    "psi-header.config": {
-      "company": "MFB Technologies, Inc.",
-      "forceToTop": true,
-      "blankLinesAfter": 1
-    },
-    "psi-header.changes-tracking": {
-      "isActive": true,
-      "enforceHeader": true,
-      "excludeGlob": [
-        "**/settings.json",
-        "**/.gitignore",
-        "**/.env*",
-        "**/sonar-project.properties",
-        "**/.github/**/*",
-        "**/*.yml",
-        "**/Dockerfile"
-      ],
-      "exclude": ["jsonc", "json", "markdown"]
-    },
-    "psi-header.lang-config": [
-      {
-        "language": ".js",
-        "begin": "",
-        "end": "",
-        "prefix": "//",
-        "beforeHeader": ["#!/usr/bin/env node"]
-      },
-      {
-        "language": ".ts",
-        "begin": "",
-        "end": "",
-        "prefix": "//"
-      },
-      {
-        "language": ".tsx",
-        "begin": "",
-        "end": "",
-        "prefix": "//"
-      },
-      {
-        "language": ".scss",
-        "begin": "",
-        "end": "",
-        "prefix": "//"
-      }
-    ],
-    "search.exclude": {
-      "**/node_modules": true,
-      "**/lib": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.rulers": [100],
+  "psi-header.templates": [
+    {
+      "language": "*",
+      "template": [" Copyright <<year>> <<company>>"]
     }
+  ],
+  "psi-header.config": {
+    "company": "MFB Technologies, Inc.",
+    "forceToTop": true,
+    "blankLinesAfter": 1
+  },
+  "psi-header.changes-tracking": {
+    "isActive": true,
+    "enforceHeader": true,
+    "excludeGlob": [
+      "**/settings.json",
+      "**/.gitignore",
+      "**/.env*",
+      "**/sonar-project.properties",
+      "**/.github/**/*",
+      "**/*.yml",
+      "**/.prettierignore",
+      "**/Dockerfile"
+    ],
+    "exclude": ["jsonc", "json", "markdown"]
+  },
+  "psi-header.lang-config": [
+    {
+      "language": ".js",
+      "begin": "",
+      "end": "",
+      "prefix": "//",
+      "beforeHeader": ["#!/usr/bin/env node"]
+    },
+    {
+      "language": ".ts",
+      "begin": "",
+      "end": "",
+      "prefix": "//"
+    },
+    {
+      "language": ".tsx",
+      "begin": "",
+      "end": "",
+      "prefix": "//"
+    },
+    {
+      "language": ".scss",
+      "begin": "",
+      "end": "",
+      "prefix": "//"
+    }
+  ],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/lib": true
   }
-  
+}

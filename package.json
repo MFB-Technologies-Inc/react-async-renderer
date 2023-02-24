@@ -42,8 +42,8 @@
     "lint": "eslint ./src/",
     "test:ci": "jest --reporters=jest-standard-reporter --coverage",
     "test": "jest --watch",
-    "fix-formatting": "prettier --write --config ../../prettier.config.js ./src/",
-    "check-formatting": "prettier --check --config ../../prettier.config.js ./src/",
+    "fix-formatting": "prettier --write --config ./prettier.config.js ./src/",
+    "check-formatting": "prettier --check --config ./prettier.config.js ./src/",
     "package": "node ./scripts/package.js"
   },
   "devDependencies": {
@@ -62,7 +62,7 @@
     "sass": "^1.35.2",
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4",
-    "eslint-config-react-app":"^7.0.1"
+    "eslint-config-react-app": "^7.0.1"
   },
   "peerDependencies": {
     "react": "^17.0.2 || 18",

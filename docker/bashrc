@@ -1,0 +1,10 @@
+## commands relative to root of current git repository
+
+# navigate to root of repository
+alias cdg='cd "$(git rev-parse --show-cdup)"'
+
+# list files at root of repository
+alias lsg='ls "$(git rev-parse --show-cdup)"'
+
+# git tab completion
+source ~/.git-completion.bash

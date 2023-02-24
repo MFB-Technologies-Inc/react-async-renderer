@@ -1,18 +1,27 @@
 // Copyright 2022 MFB Technologies, Inc.
 
 import { getOptimisticAsyncLoadState } from ".."
-import { AsyncRequestStatus } from "../enumerations"
+import { AsyncRequestStatus, AsyncRequestStatusEnum } from "../enumerations"
 import { getCascadedAsyncState, rtkqResultsToStatusError } from "../utils"
 
 describe(`${rtkqResultsToStatusError.name}`, () => {
   it.each([
-    [[{ isLoading: true }, { isLoading: true }], AsyncRequestStatus.PENDING],
-    [[{ isSuccess: true }, { isLoading: true }], AsyncRequestStatus.PENDING],
-    [[{ isError: true }, { isError: true }], AsyncRequestStatus.ERROR],
-    [[{ isError: true }, { isLoading: true }], AsyncRequestStatus.ERROR],
-    [[{ isError: true }, { isSuccess: true }], AsyncRequestStatus.ERROR],
-    [[{ isSuccess: true }, { isSuccess: true }], AsyncRequestStatus.FULFILLED],
-    [[{}, {}], AsyncRequestStatus.INIT]
+    [
+      [{ isLoading: true }, { isLoading: true }],
+      AsyncRequestStatusEnum.PENDING
+    ],
+    [
+      [{ isSuccess: true }, { isLoading: true }],
+      AsyncRequestStatusEnum.PENDING
+    ],
+    [[{ isError: true }, { isError: true }], AsyncRequestStatusEnum.ERROR],
+    [[{ isError: true }, { isLoading: true }], AsyncRequestStatusEnum.ERROR],
+    [[{ isError: true }, { isSuccess: true }], AsyncRequestStatusEnum.ERROR],
+    [
+      [{ isSuccess: true }, { isSuccess: true }],
+      AsyncRequestStatusEnum.FULFILLED
+    ],
+    [[{}, {}], AsyncRequestStatusEnum.INIT]
   ])("correctly converts %s to %s", (results, expectedStatus) => {
     expect(rtkqResultsToStatusError(results).status).toEqual(expectedStatus)
   })
@@ -27,12 +36,12 @@ it("converts all errors to a single string", () => {
 describe(getCascadedAsyncState.name, () => {
   it("returns the first async state if it is not fulfilled", () => {
     const asyncStates = [
-      { status: AsyncRequestStatus.PENDING, error: null },
-      { status: AsyncRequestStatus.INIT, error: null },
-      { status: AsyncRequestStatus.INIT, error: null }
+      { status: AsyncRequestStatusEnum.PENDING, error: null },
+      { status: AsyncRequestStatusEnum.INIT, error: null },
+      { status: AsyncRequestStatusEnum.INIT, error: null }
     ]
     const expectedState = {
-      status: AsyncRequestStatus.PENDING,
+      status: AsyncRequestStatusEnum.PENDING,
       error: null
     }
 
@@ -43,12 +52,12 @@ describe(getCascadedAsyncState.name, () => {
 
   it("returns the first async state as an init state if it is init", () => {
     const asyncStates = [
-      { status: AsyncRequestStatus.INIT, error: null },
-      { status: AsyncRequestStatus.INIT, error: null },
-      { status: AsyncRequestStatus.INIT, error: null }
+      { status: AsyncRequestStatusEnum.INIT, error: null },
+      { status: AsyncRequestStatusEnum.INIT, error: null },
+      { status: AsyncRequestStatusEnum.INIT, error: null }
     ]
     const expectedState = {
-      status: AsyncRequestStatus.INIT,
+      status: AsyncRequestStatusEnum.INIT,
       error: null
     }
 
@@ -59,12 +68,12 @@ describe(getCascadedAsyncState.name, () => {
 
   it("returns the next async state if the previous async state is fulfilled", () => {
     const asyncStates = [
-      { status: AsyncRequestStatus.FULFILLED, error: null },
-      { status: AsyncRequestStatus.PENDING, error: null },
-      { status: AsyncRequestStatus.INIT, error: null }
+      { status: AsyncRequestStatusEnum.FULFILLED, error: null },
+      { status: AsyncRequestStatusEnum.PENDING, error: null },
+      { status: AsyncRequestStatusEnum.INIT, error: null }
     ]
     const expectedState = {
-      status: AsyncRequestStatus.PENDING,
+      status: AsyncRequestStatusEnum.PENDING,
       error: null
     }
 
@@ -75,12 +84,12 @@ describe(getCascadedAsyncState.name, () => {
 
   it("returns the next async state as pending if it has a init status", () => {
     const asyncStates = [
-      { status: AsyncRequestStatus.FULFILLED, error: null },
-      { status: AsyncRequestStatus.INIT, error: null },
-      { status: AsyncRequestStatus.INIT, error: null }
+      { status: AsyncRequestStatusEnum.FULFILLED, error: null },
+      { status: AsyncRequestStatusEnum.INIT, error: null },
+      { status: AsyncRequestStatusEnum.INIT, error: null }
     ]
     const expectedState = {
-      status: AsyncRequestStatus.PENDING,
+      status: AsyncRequestStatusEnum.PENDING,
       error: null
     }
 
@@ -91,12 +100,12 @@ describe(getCascadedAsyncState.name, () => {
 
   it("returns a fulfilled async state if all of the async states are fulfilled", () => {
     const asyncStates = [
-      { status: AsyncRequestStatus.FULFILLED, error: null },
-      { status: AsyncRequestStatus.FULFILLED, error: null },
-      { status: AsyncRequestStatus.FULFILLED, error: null }
+      { status: AsyncRequestStatusEnum.FULFILLED, error: null },
+      { status: AsyncRequestStatusEnum.FULFILLED, error: null },
+      { status: AsyncRequestStatusEnum.FULFILLED, error: null }
     ]
     const expectedState = {
-      status: AsyncRequestStatus.FULFILLED,
+      status: AsyncRequestStatusEnum.FULFILLED,
       error: null
     }
 
@@ -108,12 +117,12 @@ describe(getCascadedAsyncState.name, () => {
   it("does not return the next async state if the previous async state is error", () => {
     const expectedError = "some error"
     const asyncStates = [
-      { status: AsyncRequestStatus.FULFILLED, error: null },
-      { status: AsyncRequestStatus.ERROR, error: expectedError },
-      { status: AsyncRequestStatus.INIT, error: null }
+      { status: AsyncRequestStatusEnum.FULFILLED, error: null },
+      { status: AsyncRequestStatusEnum.ERROR, error: expectedError },
+      { status: AsyncRequestStatusEnum.INIT, error: null }
     ]
     const expectedState = {
-      status: AsyncRequestStatus.ERROR,
+      status: AsyncRequestStatusEnum.ERROR,
       error: expectedError
     }
 
@@ -122,13 +131,13 @@ describe(getCascadedAsyncState.name, () => {
     expect(result).toEqual(expectedState)
   })
 
-  it(`returns status as ${AsyncRequestStatus.INIT} and error as null when the argument is an empty array`, () => {
+  it(`returns status as ${AsyncRequestStatusEnum.INIT} and error as null when the argument is an empty array`, () => {
     const asyncStates: Array<{
       status: AsyncRequestStatus
       error: string | null
     }> = []
     const expectedState = {
-      status: AsyncRequestStatus.INIT,
+      status: AsyncRequestStatusEnum.INIT,
       error: null
     }
 
@@ -152,9 +161,9 @@ describe(getOptimisticAsyncLoadState.name, () => {
       isLastActionLoad: true
     }
 
-    it(`return status as ${AsyncRequestStatus.FULFILLED}`, () => {
+    it(`return status as ${AsyncRequestStatusEnum.FULFILLED}`, () => {
       const expectedResult: GetOptimisticAsyncLoadStateResult = {
-        status: AsyncRequestStatus.FULFILLED,
+        status: AsyncRequestStatusEnum.FULFILLED,
         error: null
       }
 
@@ -165,13 +174,13 @@ describe(getOptimisticAsyncLoadState.name, () => {
   })
 
   describe("isLoaded is false", () => {
-    it(`return status as ${AsyncRequestStatus.INIT} if isLastActionLoad is false`, () => {
+    it(`return status as ${AsyncRequestStatusEnum.INIT} if isLastActionLoad is false`, () => {
       const args: GetOptimisticAsyncLoadStateArgs = {
         isLoaded: false,
         isLastActionLoad: false
       }
       const expectedResult: GetOptimisticAsyncLoadStateResult = {
-        status: AsyncRequestStatus.INIT,
+        status: AsyncRequestStatusEnum.INIT,
         error: null
       }
 
@@ -180,13 +189,13 @@ describe(getOptimisticAsyncLoadState.name, () => {
       expect(result).toEqual(expectedResult)
     })
 
-    it(`return status as ${AsyncRequestStatus.INIT} if isLastActionLoad is true and lastActionAsyncState is undefined`, () => {
+    it(`return status as ${AsyncRequestStatusEnum.INIT} if isLastActionLoad is true and lastActionAsyncState is undefined`, () => {
       const args: GetOptimisticAsyncLoadStateArgs = {
         isLoaded: false,
         isLastActionLoad: true
       }
       const expectedResult: GetOptimisticAsyncLoadStateResult = {
-        status: AsyncRequestStatus.INIT,
+        status: AsyncRequestStatusEnum.INIT,
         error: null
       }
 
@@ -195,17 +204,17 @@ describe(getOptimisticAsyncLoadState.name, () => {
       expect(result).toEqual(expectedResult)
     })
 
-    it(`return status as ${AsyncRequestStatus.INIT} if isLastActionLoad is true and lastActionAsyncState.status is ${AsyncRequestStatus.INIT}`, () => {
+    it(`return status as ${AsyncRequestStatusEnum.INIT} if isLastActionLoad is true and lastActionAsyncState.status is ${AsyncRequestStatusEnum.INIT}`, () => {
       const args: GetOptimisticAsyncLoadStateArgs = {
         isLoaded: false,
         isLastActionLoad: true,
         lastActionAsyncState: {
-          status: AsyncRequestStatus.INIT,
+          status: AsyncRequestStatusEnum.INIT,
           error: null
         }
       }
       const expectedResult: GetOptimisticAsyncLoadStateResult = {
-        status: AsyncRequestStatus.INIT,
+        status: AsyncRequestStatusEnum.INIT,
         error: null
       }
 
@@ -214,17 +223,17 @@ describe(getOptimisticAsyncLoadState.name, () => {
       expect(result).toEqual(expectedResult)
     })
 
-    it(`return status as ${AsyncRequestStatus.PENDING} if isLastActionLoad is true and lastActionAsyncState.status is ${AsyncRequestStatus.PENDING}`, () => {
+    it(`return status as ${AsyncRequestStatusEnum.PENDING} if isLastActionLoad is true and lastActionAsyncState.status is ${AsyncRequestStatusEnum.PENDING}`, () => {
       const args: GetOptimisticAsyncLoadStateArgs = {
         isLoaded: false,
         isLastActionLoad: true,
         lastActionAsyncState: {
-          status: AsyncRequestStatus.PENDING,
+          status: AsyncRequestStatusEnum.PENDING,
           error: null
         }
       }
       const expectedResult: GetOptimisticAsyncLoadStateResult = {
-        status: AsyncRequestStatus.PENDING,
+        status: AsyncRequestStatusEnum.PENDING,
         error: null
       }
 
@@ -233,17 +242,17 @@ describe(getOptimisticAsyncLoadState.name, () => {
       expect(result).toEqual(expectedResult)
     })
 
-    it(`return status as ${AsyncRequestStatus.FULFILLED} if isLastActionLoad is true and lastActionAsyncState.status is ${AsyncRequestStatus.FULFILLED}`, () => {
+    it(`return status as ${AsyncRequestStatusEnum.FULFILLED} if isLastActionLoad is true and lastActionAsyncState.status is ${AsyncRequestStatusEnum.FULFILLED}`, () => {
       const args: GetOptimisticAsyncLoadStateArgs = {
         isLoaded: false,
         isLastActionLoad: true,
         lastActionAsyncState: {
-          status: AsyncRequestStatus.FULFILLED,
+          status: AsyncRequestStatusEnum.FULFILLED,
           error: null
         }
       }
       const expectedResult: GetOptimisticAsyncLoadStateResult = {
-        status: AsyncRequestStatus.FULFILLED,
+        status: AsyncRequestStatusEnum.FULFILLED,
         error: null
       }
 
@@ -252,17 +261,17 @@ describe(getOptimisticAsyncLoadState.name, () => {
       expect(result).toEqual(expectedResult)
     })
 
-    it(`return status as ${AsyncRequestStatus.ERROR} if isLastActionLoad is true and lastActionAsyncState.status is ${AsyncRequestStatus.ERROR}`, () => {
+    it(`return status as ${AsyncRequestStatusEnum.ERROR} if isLastActionLoad is true and lastActionAsyncState.status is ${AsyncRequestStatusEnum.ERROR}`, () => {
       const args: GetOptimisticAsyncLoadStateArgs = {
         isLoaded: false,
         isLastActionLoad: true,
         lastActionAsyncState: {
-          status: AsyncRequestStatus.ERROR,
+          status: AsyncRequestStatusEnum.ERROR,
           error: "some error"
         }
       }
       const expectedResult: GetOptimisticAsyncLoadStateResult = {
-        status: AsyncRequestStatus.ERROR,
+        status: AsyncRequestStatusEnum.ERROR,
         error: "some error"
       }
 

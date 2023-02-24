@@ -4,7 +4,7 @@ import React, { ReactElement } from "react"
 import { AsyncUiModel } from "./index"
 import { ErrorReport } from "./components/ErrorReport"
 import { LoadingSpinner } from "./components/LoadingSpinner"
-import { AsyncRequestStatus } from "./enumerations"
+import { AsyncRequestStatus, AsyncRequestStatusEnum } from "./enumerations"
 
 /**
  * The type for the on completed successfully callback function that does not expect any arguments.
@@ -21,10 +21,10 @@ export type OnCompletedSuccessfullyWithoutArgs = {
  */
 export type OnCompletedSuccessfully<TArgs extends OnCompletedSuccessfullyArgs> =
   TArgs extends OnCompletedSuccessfullyWithoutArgs
-  ? (() => ReactElement<any, any> | null) | JSX.Element
-  : TArgs extends Record<any, any>
-  ? (args: TArgs) => ReactElement<any, any> | null
-  : never
+    ? (() => ReactElement<any, any> | null) | JSX.Element
+    : TArgs extends Record<any, any>
+    ? (args: TArgs) => ReactElement<any, any> | null
+    : never
 
 /**
  * The type for the on completed successfully callback data argument.
@@ -39,18 +39,18 @@ export type OnCompletedSuccessfullyArgs =
  */
 export type CreateAsyncRendererArgs<
   T extends OnCompletedSuccessfullyArgs = OnCompletedSuccessfullyWithoutArgs
-  > = {
-    /** The status used to conditionally render the UI. */
-    status: AsyncRequestStatus
-    /** The error message associated with the status. */
-    error: string | null
-    /**
-     * Data to be passed to the on completed successfully callback. If the data is `null` or `undefined` when
-     * the status is fulfilled then the on completed with error callback will be invoked. If the data is not
-     * specified in the arguments then nothing will be passed to the on completed successfully callback.
-     */
-    onCompletedSuccessfullyArgs?: T
-  }
+> = {
+  /** The status used to conditionally render the UI. */
+  status: AsyncRequestStatus
+  /** The error message associated with the status. */
+  error: string | null
+  /**
+   * Data to be passed to the on completed successfully callback. If the data is `null` or `undefined` when
+   * the status is fulfilled then the on completed with error callback will be invoked. If the data is not
+   * specified in the arguments then nothing will be passed to the on completed successfully callback.
+   */
+  onCompletedSuccessfullyArgs?: T
+}
 
 /**
  * Creates a function that renders JSX/Components with respect to an asynchronous operation and, optionally,
@@ -84,32 +84,32 @@ export function createAsyncRenderer<
 >(
   args: CreateAsyncRendererArgs<T>
 ): (
+  /**
+   * Invoked when the operation has successfully completed. If data was specified in the function args, then it will
+   * be invoked with that data as long as it is not `null` or `undefined`.
+   */
+  onCompletedSuccessfully: OnCompletedSuccessfully<T>,
+  optionalArgs?: {
     /**
-     * Invoked when the operation has successfully completed. If data was specified in the function args, then it will
-     * be invoked with that data as long as it is not `null` or `undefined`.
+     * Invoked when the operation has completed with an
+     * error. Defaults to a generic error component.
      */
-    onCompletedSuccessfully: OnCompletedSuccessfully<T>,
-    optionalArgs?: {
-      /**
-       * Invoked when the operation has completed with an
-       * error. Defaults to a generic error component.
-       */
-      onCompletedWithError?: JSX.Element | React.FC<{ errorMessage?: string }>
-      /** Invoked when the operation is in progress. Defaults to a generic loading component. */
-      onLoading?: JSX.Element | (() => JSX.Element)
-      /** Invoked when the operation is initialized. Defaults to a generic loading component. */
-      onInit?: JSX.Element | (() => JSX.Element)
-    }
-  ) => ReactElement<any, any> | null {
+    onCompletedWithError?: JSX.Element | React.FC<{ errorMessage?: string }>
+    /** Invoked when the operation is in progress. Defaults to a generic loading component. */
+    onLoading?: JSX.Element | (() => JSX.Element)
+    /** Invoked when the operation is initialized. Defaults to a generic loading component. */
+    onInit?: JSX.Element | (() => JSX.Element)
+  }
+) => ReactElement<any, any> | null {
   return (onCompletedSuccessfully, optionalArgs) => {
     switch (args.status) {
-      case AsyncRequestStatus.ERROR: {
+      case AsyncRequestStatusEnum.ERROR: {
         return getErrorComponent(args.error, optionalArgs?.onCompletedWithError)
       }
-      case AsyncRequestStatus.PENDING: {
+      case AsyncRequestStatusEnum.PENDING: {
         return getLoadingComponent(optionalArgs?.onLoading)
       }
-      case AsyncRequestStatus.INIT: {
+      case AsyncRequestStatusEnum.INIT: {
         return getInitComponent(optionalArgs?.onInit)
       }
       default: {

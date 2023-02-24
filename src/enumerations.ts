@@ -1,9 +1,12 @@
 // Copyright 2022 MFB Technologies, Inc.
 
-/** possible status of async requests, e.g., createAsyncThunk()'s return */
-export enum AsyncRequestStatus {
-  INIT = "init",
-  PENDING = "pending",
-  FULFILLED = "fulfilled",
-  ERROR = "error"
-}
+/** Enumeration of asynchronous request statuses. */
+export const AsyncRequestStatusEnum = {
+  INIT: "init",
+  PENDING: "pending",
+  FULFILLED: "fulfilled",
+  ERROR: "error"
+} as const
+/** Possible status of async requests, e.g., createAsyncThunk()'s return. */
+export type AsyncRequestStatus =
+  typeof AsyncRequestStatusEnum[keyof typeof AsyncRequestStatusEnum]

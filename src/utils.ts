@@ -1,7 +1,7 @@
 // Copyright 2022 MFB Technologies, Inc.
 
 import { AsyncUiModel } from "./index"
-import { AsyncRequestStatus } from "./enumerations"
+import { AsyncRequestStatus, AsyncRequestStatusEnum } from "./enumerations"
 
 /**
  * Convert an array of RTK-Query's status booleans to a
@@ -18,18 +18,18 @@ export function rtkqResultsToStatusError(
     error?: unknown
   }[]
 ): { status: AsyncRequestStatus; error: string } {
-  let status: AsyncRequestStatus = AsyncRequestStatus.INIT
+  let status: AsyncRequestStatus = AsyncRequestStatusEnum.INIT
   if (results.some(result => result.isError)) {
-    status = AsyncRequestStatus.ERROR
+    status = AsyncRequestStatusEnum.ERROR
   }
   if (
-    status === AsyncRequestStatus.INIT &&
+    status === AsyncRequestStatusEnum.INIT &&
     results.some(result => result.isLoading)
   ) {
-    status = AsyncRequestStatus.PENDING
+    status = AsyncRequestStatusEnum.PENDING
   }
   if (results.every(result => result.isSuccess)) {
-    status = AsyncRequestStatus.FULFILLED
+    status = AsyncRequestStatusEnum.FULFILLED
   }
 
   const error = results.map(result => result.error).toString()
@@ -45,7 +45,7 @@ export function composeAsyncUiModel<T extends Record<string, any> | null>(
   status: AsyncRequestStatus,
   error: string
 ): AsyncUiModel<T> {
-  if (status !== AsyncRequestStatus.ERROR) {
+  if (status !== AsyncRequestStatusEnum.ERROR) {
     return {
       status,
       error: null,
@@ -72,7 +72,7 @@ export function composeAsyncUiModel<T extends Record<string, any> | null>(
 export function getCascadedAsyncState(
   asyncStateCollection: Array<Pick<AsyncUiModel<any>, "error" | "status">>
 ): Pick<AsyncUiModel<any>, "error" | "status"> {
-  const initialAsyncState = { status: AsyncRequestStatus.INIT, error: null }
+  const initialAsyncState = { status: AsyncRequestStatusEnum.INIT, error: null }
   return asyncStateCollection.reduce(
     (previousAsyncRequestState, currentAsyncRequestState, index) => {
       // Start off with the state of the first async request state
@@ -80,11 +80,13 @@ export function getCascadedAsyncState(
         return { ...currentAsyncRequestState }
       }
       // If the previous async request state is fulfilled then use the next async request state
-      if (previousAsyncRequestState.status === AsyncRequestStatus.FULFILLED) {
+      if (
+        previousAsyncRequestState.status === AsyncRequestStatusEnum.FULFILLED
+      ) {
         // Override the micro status with macro status
-        if (currentAsyncRequestState.status === AsyncRequestStatus.INIT) {
+        if (currentAsyncRequestState.status === AsyncRequestStatusEnum.INIT) {
           return {
-            status: AsyncRequestStatus.PENDING,
+            status: AsyncRequestStatusEnum.PENDING,
             error: currentAsyncRequestState.error
           }
         }
@@ -115,7 +117,7 @@ export function getOptimisticAsyncLoadState(args: {
 }): { status: AsyncRequestStatus; error: string | null } {
   if (args.isLoaded) {
     return {
-      status: AsyncRequestStatus.FULFILLED,
+      status: AsyncRequestStatusEnum.FULFILLED,
       error: null
     }
   } else if (
@@ -123,7 +125,7 @@ export function getOptimisticAsyncLoadState(args: {
     args.lastActionAsyncState === undefined
   ) {
     return {
-      status: AsyncRequestStatus.INIT,
+      status: AsyncRequestStatusEnum.INIT,
       error: null
     }
   } else {
