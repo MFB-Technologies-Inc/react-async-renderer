@@ -1,5 +1,6 @@
 // Copyright 2022 MFB Technologies, Inc.
 
+import React from "react"
 import "./LoadingSpinner.css"
 
 export const LoadingSpinner: React.FC = () => (
