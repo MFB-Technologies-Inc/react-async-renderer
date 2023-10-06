@@ -27,6 +27,8 @@ SHELL ["/bin/bash", "--login", "-c"]
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
 && . ~/.nvm/nvm.sh \
 && nvm install --lts=hydrogen
+# install npm updates
+RUN npm install -g npm@10.2.0
 # clone repo
 RUN --mount=type=ssh,uid=1002 git clone git@github.com:MFB-Technologies-Inc/react-async-renderer /home/$USERNAME/workspace/react-async-renderer
 # set working dir
