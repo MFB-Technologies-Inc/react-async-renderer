@@ -1,7 +1,3 @@
-/*
- *  Copyright 2023 MFB Technologies, Inc.
- */
-
 FROM debian:bullseye
 ARG USERNAME=vscode
 RUN apt-get update
