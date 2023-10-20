@@ -1,10 +1,10 @@
 // Copyright 2023 MFB Technologies, Inc.
 
 import React, { ReactElement } from "react"
-import { AsyncUiModel } from "./index"
 import { ErrorReport } from "./components/ErrorReport"
 import { LoadingSpinner } from "./components/LoadingSpinner"
 import { AsyncRequestStatus, AsyncRequestStatusEnum } from "./enumerations"
+import { AsyncUiModel } from "./types"
 
 /**
  * The type for the on completed successfully callback function that does not expect any arguments.

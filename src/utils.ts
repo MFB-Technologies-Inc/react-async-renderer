@@ -1,7 +1,7 @@
 // Copyright 2023 MFB Technologies, Inc.
 
-import { AsyncUiModel } from "./index"
 import { AsyncRequestStatus, AsyncRequestStatusEnum } from "./enumerations"
+import { AsyncUiModel } from "./types"
 
 /**
  * Convert an array of RTK-Query's status booleans to a
