@@ -7,6 +7,7 @@ export const AsyncRequestStatusEnum = {
   FULFILLED: "fulfilled",
   ERROR: "error"
 } as const
+
 /** Possible status of async requests, e.g., createAsyncThunk()'s return. */
 export type AsyncRequestStatus =
   (typeof AsyncRequestStatusEnum)[keyof typeof AsyncRequestStatusEnum]
