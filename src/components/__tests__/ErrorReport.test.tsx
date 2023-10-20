@@ -1,4 +1,4 @@
-// Copyright 2022 MFB Technologies, Inc.
+// Copyright 2023 MFB Technologies, Inc.
 
 import { render } from "@testing-library/react"
 import { ErrorReport } from "../ErrorReport"

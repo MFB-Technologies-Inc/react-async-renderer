@@ -1,16 +1,4 @@
-// Copyright 2022 MFB Technologies, Inc.
-
-import { AsyncRequestStatusEnum, AsyncRequestStatus } from "./enumerations"
-
-type INonErrorState = {
-  status: Exclude<AsyncRequestStatus, "error">
-  error: null
-}
-
-type IErrorState = {
-  status: typeof AsyncRequestStatusEnum.ERROR
-  error: string
-}
+// Copyright 2023 MFB Technologies, Inc.
 
 export { AsyncRequestStatusEnum } from "./enumerations"
 export { LoadingSpinner } from "./components/LoadingSpinner"

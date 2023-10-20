@@ -1,4 +1,4 @@
-// Copyright 2022 MFB Technologies, Inc.
+// Copyright 2023 MFB Technologies, Inc.
 
 const text = {
   genericErrorMessage: "An error prevented rendering."
