@@ -58,6 +58,5 @@ export const LoadingSpinner: React.FC = () => (
         />
       </g>
     </svg>
-    <span className="alt-text">Loading...</span>
   </div>
 )
