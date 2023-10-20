@@ -1,6 +1,6 @@
 // Copyright 2023 MFB Technologies, Inc.
 
-import React, { ReactElement } from "react"
+import React, { ReactElement, useEffect, useState } from "react"
 import { ErrorReport } from "./components/ErrorReport"
 import { LoadingSpinner } from "./components/LoadingSpinner"
 import { AsyncRequestStatus, AsyncRequestStatusEnum } from "./enumerations"
@@ -147,6 +147,34 @@ export function createAsyncUiModelRenderer<
     onCompletedSuccessfullyArgs: uiModel.state,
     status: uiModel.status,
     error: uiModel.error
+  })
+}
+
+function useAsyncPromiseRenderer<T extends OnCompletedSuccessfullyArgs>(
+  promise: Promise<T>
+) {
+  const [status, setStatus] = useState<AsyncRequestStatus>(
+    AsyncRequestStatusEnum.PENDING
+  )
+  const [error, setError] = useState<string | null>(null)
+  const [data, setData] = useState<T | null>(null)
+
+  useEffect(() => {
+    promise
+      .then(data => {
+        setStatus(AsyncRequestStatusEnum.FULFILLED)
+        setData(data)
+      })
+      .catch(e => {
+        setStatus(AsyncRequestStatusEnum.ERROR)
+        setError(e + "") // replace concatenation with error util
+      })
+  }, [promise])
+
+  return createAsyncRenderer({
+    onCompletedSuccessfullyArgs: data,
+    status,
+    error
   })
 }
 
