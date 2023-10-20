@@ -52,6 +52,7 @@ function MyDataComponent() {
     // Optional args that specify UI for specific states in the async operation
     {
       onCompletedWithError: <p>An error has occurred while fetching the data.</p>,
+      // defaults to a loading spinner when not specified
       onLoading: <p>Data is loading...</p>
       onInit: <p>Waiting for the data to be requested.</p>
   })
