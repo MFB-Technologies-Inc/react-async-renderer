@@ -9,4 +9,4 @@ export const AsyncRequestStatusEnum = {
 } as const
 /** Possible status of async requests, e.g., createAsyncThunk()'s return. */
 export type AsyncRequestStatus =
-  typeof AsyncRequestStatusEnum[keyof typeof AsyncRequestStatusEnum]
+  (typeof AsyncRequestStatusEnum)[keyof typeof AsyncRequestStatusEnum]
