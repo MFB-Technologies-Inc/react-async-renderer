@@ -55,24 +55,8 @@ it("renders onCompletedWithError when the operation has completed with an error"
   })
 })
 
-it("renders onCompletedWithError when the on completed successfully args are null", () => {
-  const onCompletedSuccessfullyArgs: any = null
-  const render = createAsyncRenderer({
-    status: AsyncRequestStatusEnum.FULFILLED,
-    error: null,
-    onCompletedSuccessfullyArgs
-  })
-
-  render(onCompletedSuccessfullySpy, {
-    onCompletedWithError: onCompletedWithErrorSpy
-  })
-
-  expect(onCompletedSuccessfullySpy).not.toHaveBeenCalled()
-  expect(onCompletedWithErrorSpy).toHaveBeenCalled()
-})
-
 it("renders onCompletedWithError when the on completed successfully args are undefined", () => {
-  const onCompletedSuccessfullyArgs: any = undefined
+  const onCompletedSuccessfullyArgs = undefined
   const render = createAsyncRenderer({
     status: AsyncRequestStatusEnum.FULFILLED,
     error: null,

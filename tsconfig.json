@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "lib",
     "declaration": true,
-    "target": "es5",
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -10,9 +10,9 @@
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
-    "jsx":"react-jsx",
+    "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
-    "types":["node", "jest"]
+    "types": ["node", "jest"]
   },
   "include": ["src/**/*"]
 }
