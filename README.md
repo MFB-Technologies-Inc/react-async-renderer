@@ -17,7 +17,7 @@ At the core of this package is `createAsyncRenderer`, which renders specific JSX
 ```tsx
 function useMyData() {
   // Setup status state to reflect the state of your long running process
-  const [status, setStatus] = useState<AsyncRequestStatus>(AsyncRequestStatus.INIT)
+  const [status, setStatus] = useState<AsyncRequestStatus>(AsyncRequestStatusEnum.INIT)
   // Setup error state for any errors associated with your long running process
   const [error, setError] = useState<null | string>(null)
   // Setup data state for any data returned from your long running process

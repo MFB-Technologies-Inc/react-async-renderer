@@ -2,6 +2,21 @@
 
 This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be manually modified.
 
+## 2.0.0
+Fri, 24 Feb 2023 09:52:00 GMT
+
+### Major changes
+
+- Changed AsyncRequestStatus from an enumeration to a type
+
+### Minor changes
+
+- Added support for React v18
+
+### Patch changes
+
+- Resolve Json5 security warnings
+
 ## 1.3.0
 Fri, 12 Aug 2022 09:12:00 GMT
 
@@ -50,4 +65,3 @@ Mon, 04 Oct 2021 20:45:24 GMT
 ### Patches
 
 - Re-generate pipeline script
-

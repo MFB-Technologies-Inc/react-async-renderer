@@ -7,7 +7,6 @@ $half-size: math.div($size, 2);
 
 .spinner {
   position: relative;
-  // TODO: #9: address build warnings
   top: calc(50% - $half-size);
   left: calc(50% - $half-size);
   width: $size;

@@ -2,6 +2,39 @@
   "name": "@mfbtech/react-async-renderer",
   "entries": [
     {
+      "version": "2.0.0",
+      "tag": "@mfbtech/react-async-renderer_v2.0.0",
+      "date": "Fri, 24 Feb 2023 09:52:00 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "Changed AsyncRequestStatus from an enumeration to a type"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "Added support for React v18"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Resolve Json5 security warnings"
+          }
+        ],
+        "none": [
+          {
+            "comment": "Added a docker development environment"
+          },
+          {
+            "comment": "Updated the Mend configuration file"
+          },
+          {
+            "comment": "Resolved build warnings from Sass math division"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.3.0",
       "tag": "@mfbtech/react-async-renderer_v1.3.0",
       "date": "Fri, 12 Aug 2022 09:12:00 GMT",
