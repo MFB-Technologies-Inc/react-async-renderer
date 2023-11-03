@@ -14,7 +14,10 @@ export const LoadingSpinner: React.FC = () => (
       y="0px"
       viewBox="0 0 144 144"
       xmlSpace="preserve"
+      aria-labelledby="loadingSpinnerTitle"
+      role="img"
     >
+      <title id="loadingSpinnerTitle">Loading spinner</title>
       <g>
         <path
           opacity="0.9"
@@ -58,6 +61,5 @@ export const LoadingSpinner: React.FC = () => (
         />
       </g>
     </svg>
-    <span className="alt-text">Loading...</span>
   </div>
 )
