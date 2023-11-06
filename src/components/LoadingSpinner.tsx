@@ -1,7 +1,7 @@
 // Copyright 2022 MFB Technologies, Inc.
 
 import React from "react"
-import "./LoadingSpinner.css"
+import "./LoadingSpinner.scss"
 
 export const LoadingSpinner: React.FC = () => (
   <div className="spinner">
