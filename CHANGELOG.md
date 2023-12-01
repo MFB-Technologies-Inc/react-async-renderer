@@ -7,7 +7,7 @@ Fri, 24 Feb 2023 09:52:00 GMT
 
 ### Major changes
 
-- Changed AsyncRequestStatus from an enumeration to a type
+- Changed `AsyncRequestStatus` from an enumeration to a type
 
 ### Minor changes
 
@@ -16,6 +16,7 @@ Fri, 24 Feb 2023 09:52:00 GMT
 ### Patch changes
 
 - Resolve Json5 security warnings
+- Resolve build warnings concerning Sass `mathdiv`
 
 ## 1.3.0
 Fri, 12 Aug 2022 09:12:00 GMT
