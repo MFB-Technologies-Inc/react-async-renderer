@@ -2,6 +2,64 @@
   "name": "@mfbtech/react-async-renderer",
   "entries": [
     {
+      "version": "2.1.0",
+      "tag": "@mfbtech/react-async-renderer_v2.1.0",
+      "date": "Fri, 1 Dec 2023 11:45:00 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Added a title to the spinner image"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Resolved JSON5 security issue"
+          },
+          {
+            "comment": "Upgraded `@types/react` from 17.0.44 to 17.0.60"
+          },
+          {
+            "comment": "Changed TS config to build to ES6"
+          }
+        ],
+        "none": [
+          {
+            "comment": "Fixed change log for v2.0.0"
+          },
+          {
+            "comment": "Upgraded Node.js to v18"
+          },
+          {
+            "comment": "Upgraded npm to v10.2.0"
+          },
+          {
+            "comment": "Upgraded `@types/node` to v18"
+          },
+          {
+            "comment": "Upgraded `prettier` to v18"
+          },
+          {
+            "comment": "Added dev dependency `eslint-plugin-react` to v7.33.2"
+          },
+          {
+            "comment": "Added dev dependency `eslint-plugin-react-hooks` to v4.3.0"
+          },
+          {
+            "comment": "Added dev dependency `@typescript-eslint/parser` to v6.4.1"
+          },
+          {
+            "comment": "Added dev dependency `@typescript-eslint/eslint-plugin` to v6.4.1"
+          },
+          {
+            "comment": "Improved eslint by fixing its configuration file"
+          },
+          {
+            "comment": "Fixed new linting errors and warnings"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.0.0",
       "tag": "@mfbtech/react-async-renderer_v2.0.0",
       "date": "Fri, 24 Feb 2023 09:52:00 GMT",
