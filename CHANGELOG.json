@@ -55,6 +55,9 @@
           },
           {
             "comment": "Fixed new linting errors and warnings"
+          },
+          {
+            "comment": "Extended the base tsconfig in the prod tsconfig"
           }
         ]
       }
