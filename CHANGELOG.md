@@ -2,12 +2,25 @@
 
 This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be manually modified.
 
+## 2.1.0
+Fri, 1 Dec 2023 11:45:00 GMT
+
+### Minor changes
+
+- Added a title to the spinner image
+
+### Patch changes
+
+- Resolved JSON5 security issue
+- Upgraded `@types/react` from 17.0.44 to 17.0.60
+- Changed TS config to build to ES6
+
 ## 2.0.0
 Fri, 24 Feb 2023 09:52:00 GMT
 
 ### Major changes
 
-- Changed AsyncRequestStatus from an enumeration to a type
+- Changed `AsyncRequestStatus` from an enumeration to a type
 
 ### Minor changes
 
@@ -16,6 +29,7 @@ Fri, 24 Feb 2023 09:52:00 GMT
 ### Patch changes
 
 - Resolve Json5 security warnings
+- Resolve build warnings concerning Sass `mathdiv`
 
 ## 1.3.0
 Fri, 12 Aug 2022 09:12:00 GMT
