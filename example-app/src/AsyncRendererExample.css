@@ -1,12 +1,12 @@
 /*
- *  Copyright 2022 MFB Technologies, Inc.
+ *  Copyright 2024 MFB Technologies, Inc.
  */
 
 .renderer-result {
   display: inline-block;
   padding: 2px 5px;
 }
-.info {  
+.info {
   color: white;
   background-color: blue;
 }
@@ -15,7 +15,7 @@
 }
 .success {
   color: white;
-  background-color: green
+  background-color: green;
 }
 .error {
   background-color: red;

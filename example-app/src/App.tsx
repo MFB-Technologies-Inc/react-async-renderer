@@ -1,14 +1,14 @@
-// Copyright 2022 MFB Technologies, Inc.
+// Copyright 2024 MFB Technologies, Inc.
 
-import './App.css';
+import "./App.css"
+import { AsyncRendererExample } from "./AsyncRendererExample"
+import { CascadedAsyncStateExample } from "./CascadedAsyncStateExample"
 import { LoadingSpinner } from "@mfbtech/react-async-renderer"
-import { AsyncRendererExample } from './AsyncRendererExample';
-import { CascadedAsyncStateExample } from './CascadedAsyncStateExample';
 
 export function App() {
   return (
     <div className="App">
-      <div className='wrapper'>
+      <div className="wrapper">
         <h1>@mfbtech/react-async-renderer</h1>
         <AsyncRendererExample />
         <CascadedAsyncStateExample />
@@ -19,5 +19,5 @@ export function App() {
         </div>
       </div>
     </div>
-  );
+  )
 }
