@@ -23,8 +23,8 @@ export type OnCompletedSuccessfully<TArgs extends OnCompletedSuccessfullyArgs> =
   TArgs extends OnCompletedSuccessfullyWithoutArgs
     ? (() => ReactElement<any, any> | null) | JSX.Element
     : TArgs extends Record<any, any>
-    ? (args: TArgs) => ReactElement<any, any> | null
-    : never
+      ? (args: TArgs) => ReactElement<any, any> | null
+      : never
 
 /**
  * The type for the on completed successfully callback data argument.
