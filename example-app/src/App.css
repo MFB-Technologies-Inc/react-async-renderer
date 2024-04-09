@@ -1,0 +1,14 @@
+/*
+ *  Copyright 2024 MFB Technologies, Inc.
+ */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  max-width: 1024px;
+}
+.wrapper {
+  margin: auto 10px;
+}

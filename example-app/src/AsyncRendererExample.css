@@ -1,0 +1,22 @@
+/*
+ *  Copyright 2024 MFB Technologies, Inc.
+ */
+
+.renderer-result {
+  display: inline-block;
+  padding: 2px 5px;
+}
+.info {
+  color: white;
+  background-color: blue;
+}
+.loading {
+  background-color: yellow;
+}
+.success {
+  color: white;
+  background-color: green;
+}
+.error {
+  background-color: red;
+}
