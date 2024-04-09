@@ -2,6 +2,13 @@
 
 This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be manually modified.
 
+## 2.2.0
+TBD
+
+### Minor changes
+
+- Upgrade dependencies
+
 ## 2.1.0
 Fri, 1 Dec 2023 11:45:00 GMT
 
