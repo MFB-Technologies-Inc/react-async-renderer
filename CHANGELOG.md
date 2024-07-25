@@ -2,6 +2,14 @@
 
 This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be manually modified.
 
+## 2.2.1
+Mon, 22 July 2024 12:00:00 GMT
+
+### Patch changes
+
+- Upgrade ws from 8.16.0 to 8.17.1
+- Upgrade braces from 3.0.2 to 3.0.3
+
 ## 2.2.0
 Fri, 31 May 2024 15:29:00 GMT
 
