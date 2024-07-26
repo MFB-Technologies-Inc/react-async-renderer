@@ -1,7 +1,7 @@
 name: publish
 
 # Run when a new Github publish is released
-on: 
+on:
   release:
     types: [released]
 
@@ -10,24 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
-      
+        uses: actions/checkout@v4
+
       - name: Setup node
-        uses: actions/setup-node@v3
-        with: 
-          node-version: '16'
-      
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Install packages
         run: npm install
-      
+
       - name: Build project and dependencies
         run: npm run build
-      
+
       - name: Run unit tests and generate report
         run: npm run test:ci
 
       - name: Publish package
-        uses: JS-DevTools/npm-publish@v1
+        uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
           access: "public"
