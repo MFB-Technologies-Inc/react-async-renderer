@@ -6,8 +6,8 @@ on:
     branches:
       - main
   pull_request:
-      types: [opened, synchronize, reopened]
-  
+    types: [opened, synchronize, reopened]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -16,28 +16,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Disabling shallow clone is recommended for improving relevancy of reporting
           fetch-depth: 0
-      
+
       - name: Setup node
-        uses: actions/setup-node@v3
-        with: 
-          node-version: '16'
-      
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Install packages
         run: npm install
-      
+
       - name: Check formatting
         run: npm run check-formatting
-      
+
       - name: Build project and dependencies
         run: npm run build
-      
+
       - name: Run unit tests and generate report
         run: npm run test:ci
-      
+
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
