@@ -2,6 +2,13 @@
 
 This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be manually modified.
 
+## 2.2.2
+Fri, 20 September 2024 12:00:00 GMT
+
+### Patch changes
+
+- Upgrade vite from 5.2.8 to 5.4.7
+
 ## 2.2.1
 Mon, 22 July 2024 12:00:00 GMT
 
