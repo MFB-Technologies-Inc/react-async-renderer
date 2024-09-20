@@ -1,6 +1,6 @@
 {
   "name": "@mfbtech/react-async-renderer",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Utilities for rendering JSX with respect to one or more asynchronous operations.",
   "author": "MFB Technologies, Inc.",
   "homepage": "https://github.com/MFB-Technologies-Inc/react-async-renderer",

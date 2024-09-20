@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mfbtech/react-async-renderer": "file:../packed/mfbtech-react-async-renderer-2.2.1.tgz",
+    "@mfbtech/react-async-renderer": "file:../packed/mfbtech-react-async-renderer-2.2.2.tgz",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
