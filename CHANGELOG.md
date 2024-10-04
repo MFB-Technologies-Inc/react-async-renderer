@@ -2,7 +2,16 @@
 
 This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be manually modified.
 
+## 2.2.3
+
+TBD
+
+### Patch changes
+
+- Upgrade rollup from 4.22.2 to 4.24.0
+
 ## 2.2.2
+
 Fri, 20 September 2024 12:00:00 GMT
 
 ### Patch changes
@@ -10,6 +19,7 @@ Fri, 20 September 2024 12:00:00 GMT
 - Upgrade vite from 5.2.8 to 5.4.7
 
 ## 2.2.1
+
 Mon, 22 July 2024 12:00:00 GMT
 
 ### Patch changes
@@ -18,6 +28,7 @@ Mon, 22 July 2024 12:00:00 GMT
 - Upgrade braces from 3.0.2 to 3.0.3
 
 ## 2.2.0
+
 Fri, 31 May 2024 15:29:00 GMT
 
 ### Minor changes
@@ -25,6 +36,7 @@ Fri, 31 May 2024 15:29:00 GMT
 - Upgrade dependencies
 
 ## 2.1.0
+
 Fri, 1 Dec 2023 11:45:00 GMT
 
 ### Minor changes
@@ -38,6 +50,7 @@ Fri, 1 Dec 2023 11:45:00 GMT
 - Changed TS config to build to ES6
 
 ## 2.0.0
+
 Fri, 24 Feb 2023 09:52:00 GMT
 
 ### Major changes
@@ -54,6 +67,7 @@ Fri, 24 Feb 2023 09:52:00 GMT
 - Resolve build warnings concerning Sass `mathdiv`
 
 ## 1.3.0
+
 Fri, 12 Aug 2022 09:12:00 GMT
 
 ### Minor changes
@@ -64,6 +78,7 @@ Fri, 12 Aug 2022 09:12:00 GMT
 - Restrict the files that are published
 
 ## 1.2.1
+
 Wed, 16 Mar 2022 01:48:17 GMT
 
 ### Patches
@@ -72,6 +87,7 @@ Wed, 16 Mar 2022 01:48:17 GMT
 - Change eslint configuration.
 
 ## 1.2.0
+
 Thu, 20 Jan 2022 15:51:53 GMT
 
 ### Minor changes
@@ -85,6 +101,7 @@ Thu, 20 Jan 2022 15:51:53 GMT
 - 'Update pipeline'
 
 ## 1.1.1
+
 Tue, 26 Oct 2021 15:41:27 GMT
 
 ### Patches
@@ -92,6 +109,7 @@ Tue, 26 Oct 2021 15:41:27 GMT
 - Add animated spinner
 
 ## 1.1.0
+
 Mon, 04 Oct 2021 20:45:24 GMT
 
 ### Minor changes
