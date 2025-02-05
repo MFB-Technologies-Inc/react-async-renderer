@@ -4,11 +4,12 @@ This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be m
 
 ## 2.2.3
 
-TBD
+Wed, 05 Feb 2025 17:15:00 GMT
 
 ### Patch changes
 
-- Upgrade rollup from 4.22.2 to 4.24.0
+- Upgrade vite in the example app to address a security vulnerability
+- Upgrade rollup in the example app from 4.22.2 to 4.24.0
 
 ## 2.2.2
 
