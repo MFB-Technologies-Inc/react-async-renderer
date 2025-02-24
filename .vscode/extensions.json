@@ -6,6 +6,7 @@
     "psioniq.psi-header",
     "dbaeumer.vscode-eslint",
     "ms-vsliveshare.vsliveshare",
-    "davidanson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint",
+    "github.vscode-github-actions"
   ]
 }
