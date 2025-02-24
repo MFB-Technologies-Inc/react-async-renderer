@@ -1,0 +1,26 @@
+version: 2
+updates:
+  # version and security updates for the root application
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # version and security updates for the example application
+  - package-ecosystem: "npm"
+    directory: "/example-app"
+    schedule:
+      interval: "weekly"
+    # TODO: can this be removed?
+    # using allow because ignore's docs say "Use with the allow option to define exactly which 
+    # dependencies to maintain for a package ecosystem"
+    # allow:
+    #   - dependency-name: "mfb-match-no-deps"
+    ignore:
+      - dependency-name: "*"
