@@ -47,7 +47,7 @@
     "package": "node ./scripts/package.js"
   },
   "devDependencies": {
-    "@testing-library/react": "12.1.5",
+    "@testing-library/react": "16.2.0",
     "@types/jest": "29.5.12",
     "@types/node": "18.19.31",
     "@types/react": "17.0.83",
