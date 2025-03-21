@@ -29,6 +29,9 @@ jobs:
       - name: Install packages
         run: npm install
 
+      - name: Verify change files
+        run: npx ccg change --verify
+
       - name: Check formatting
         run: npm run check-formatting
 
