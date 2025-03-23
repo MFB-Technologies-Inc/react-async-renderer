@@ -8,31 +8,41 @@ PROJECT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd 
 REPO_DIR="$( cd -- $PROJECT_DIR && cd -- "$(git rev-parse --show-cdup)" &> /dev/null && pwd)"
 cd $REPO_DIR
 
+echo "Setting up git config..."
+# unset any existing credentials
+git credential-cache exit
+git config --global --unset credential.helper
+# use PAT with write permissions
+git config --global user.email "${GIT_EMAIL}"
+git config --global user.name "release pipeline"
+git config --global credential.https://dev.azure.com.username "${GIT_EMAIL}"
+export GIT_ASKPASS="$PROJECT_DIR/scripts/git-env-password.sh"
+
 echo "Fetching origin..."
 git fetch origin
 
-# echo "Checking out main..."
-# git checkout main
-# if [ $? -ne 0 ]; then
-#   echo "Failed to checkout the main branch."
-#   exit 1
-# fi
+echo "Checking out main..."
+git checkout main
+if [ $? -ne 0 ]; then
+  echo "Failed to checkout the main branch."
+  exit 1
+fi
 
-# echo "Cleaning main..."
-# git clean -dfx
+echo "Cleaning main..."
+git clean -dfx
 
-# # incase any commits are hanging around in local main (could happen from a previous run that 
-# # failed) or remote main has commits that need to be pulled down
-# echo "Reset local main to origin main..."
-# git reset --hard origin/main
-# if [ $? -ne 0 ]; then
-#   echo "Failed to hard reset the main branch."
-#   exit 1
-# fi
+# incase any commits are hanging around in local main (could happen from a previous run that 
+# failed) or remote main has commits that need to be pulled down
+echo "Reset local main to origin main..."
+git reset --hard origin/main
+if [ $? -ne 0 ]; then
+  echo "Failed to hard reset the main branch."
+  exit 1
+fi
 
-# echo "Bumping versions and creating changelogs..."
-# npm install
-# npx ccg publish --apply
+echo "Bumping versions and creating changelogs..."
+npm install
+npx ccg publish --apply
 
 # echo "Committing changes..."
 # git status --short
@@ -55,5 +65,10 @@ git fetch origin
 #   echo "Failed to push the sprint release tag to origin."
 #   exit 1
 # fi
+
+# unset any existing credentials
+git credential-cache exit
+git config --global --unset credential.helper
+GIT_ASKPASS=""
 
 echo "Script ran successfully"
