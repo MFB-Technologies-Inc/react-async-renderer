@@ -31,7 +31,7 @@ fi
 echo "Cleaning main..."
 git clean -dfx
 
-# incase any commits are hanging around in local main (could happen from a previous run that 
+# in case any commits are hanging around in local main (could happen from a previous run that 
 # failed) or remote main has commits that need to be pulled down
 echo "Reset local main to origin main..."
 git reset --hard origin/main
@@ -45,12 +45,13 @@ npm install
 npx ccg publish --apply
 
 # echo "Committing changes..."
-# git status --short
+git status --short
 # git add --all
 # git commit -m "release ${TAG_NAME}: update changelogs, bump version, run rush update"
 
-# echo "Creating sprint release tag..."
-# git tag $TAG_NAME -a -m "Sprint release ${TAG_NAME} ."
+# echo "Creating release tag..."
+echo "Release tag name: ${TAG_NAME}."
+# git tag $TAG_NAME -a -m "Release ${TAG_NAME}."
 
 # echo "Pushing commit to origin..."
 # git push -f
