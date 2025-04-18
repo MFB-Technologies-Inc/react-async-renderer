@@ -46,26 +46,26 @@ npx ccg publish --apply
 
 # echo "Committing changes..."
 git status --short
-# git add --all
-# git commit -m "release ${TAG_NAME}: update changelogs, bump version, run rush update"
+git add --all
+git commit -m "release ${TAG_NAME}: update changelogs, bump version, run rush update"
 
 # echo "Creating release tag..."
 echo "Release tag name: ${TAG_NAME}."
-# git tag $TAG_NAME -a -m "Release ${TAG_NAME}."
+git tag $TAG_NAME -a -m "Release ${TAG_NAME}."
 
-# echo "Pushing commit to origin..."
-# git push -f
-# if [ $? -ne 0 ]; then
-#   echo "Failed to push changes to main."
-#   exit 1
-# fi
+echo "Pushing commit to origin..."
+git push -f
+if [ $? -ne 0 ]; then
+  echo "Failed to push changes to main."
+  exit 1
+fi
 
-# echo "Pushing tag to origin..."
-# git push origin $TAG_NAME -f
-# if [ $? -ne 0 ]; then
-#   echo "Failed to push the sprint release tag to origin."
-#   exit 1
-# fi
+echo "Pushing tag to origin..."
+git push origin $TAG_NAME -f
+if [ $? -ne 0 ]; then
+  echo "Failed to push the sprint release tag to origin."
+  exit 1
+fi
 
 # unset any existing credentials
 git credential-cache exit
