@@ -41,7 +41,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Bumping versions and creating changelogs..."
-yes | npm install
+npm install -y
 npx ccg publish --apply
 
 # echo "Committing changes..."
