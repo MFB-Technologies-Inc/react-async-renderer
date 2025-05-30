@@ -68,7 +68,7 @@
     "@typescript-eslint/parser": "7.6.0",
     "@typescript-eslint/eslint-plugin": "7.6.0",
     "jest-environment-jsdom": "29.7.0",
-    "@mfbtech/changelog-generator": "1.0.0"
+    "@mfbtech/changelog-generator": "1.0.1"
   },
   "peerDependencies": {
     "react": "^17.0.2 || 18",
