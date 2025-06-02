@@ -9,7 +9,7 @@
   "psi-header.templates": [
     {
       "language": "*",
-      "template": [" Copyright <<year>> <<company>>"]
+      "template": [" Copyright <<company>>"]
     }
   ],
   "psi-header.config": {
@@ -57,6 +57,13 @@
       "begin": "",
       "end": "",
       "prefix": "//"
+    },
+    {
+      "language": ".sh",
+      "begin": "",
+      "end": "",
+      "prefix": "#",
+      "beforeHeader": ["#!/usr/bin/env bash"]
     }
   ],
   "search.exclude": {
