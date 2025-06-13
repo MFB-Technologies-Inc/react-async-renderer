@@ -115,6 +115,8 @@ Checkout the [example application](./example-app/README.md).
 - ESLint for linting
 - Prettier for formatting
 - SCSS for styling
+- Do not use magic strings
+- Do not assert as `any`, except for in test modules
 
 ### Commit Messages
 
