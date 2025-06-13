@@ -1,6 +1,6 @@
 name: publish
 
-# Run when a new Github publish is released
+# Run when a new GitHub release is published
 on:
   release:
     types: [released]

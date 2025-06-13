@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "packageName": "@mfbtech/react-async-renderer",
+      "comment": "Fixed release script path in release action and updated action and package dependencies",
+      "type": "PATCH"
+    }
+  ]
+}

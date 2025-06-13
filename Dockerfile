@@ -1,7 +1,12 @@
 FROM debian:bookworm
 ARG USERNAME=vscode
-RUN apt-get update
-RUN apt-get -y install git fzf ripgrep curl python3 ssh sudo locales gnupg lsb-release libnss3-tools gstreamer1.0-gl gstreamer1.0-plugins-ugly
+# Add GitHub CLI repo and update, then install all packages in one RUN
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+    | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" > /etc/apt/sources.list.d/github-cli.list \
+    && apt-get update \
+    && apt-get -y install git fzf ripgrep curl python3 ssh sudo locales gnupg lsb-release libnss3-tools gstreamer1.0-gl gstreamer1.0-plugins-ugly gh
 # set the locale
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
     locale-gen
