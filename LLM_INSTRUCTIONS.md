@@ -2,8 +2,35 @@
 
 ## User Interactions
 
-- If the user asks for a plan, proposal, explanation, or guidance, respond ONLY with a proposed plan; do NOT start implementing 
+- If the user asks for a plan, proposal, explanation, or guidance, respond ONLY with a proposed plan; do NOT start implementing
 - When answering questions, don't write code unless explicitly asked
+
+## Remote Repository Configuration
+
+- Organization: https://github.com/MFB-Technologies-Inc
+- Project: react-async-renderer
+- Repository: react-async-renderer
+- Default target branch for PRs: main
+- If the user is not logged in remind them to login using `gh auth login`
+
+## Pull Requests
+
+1. **Title Format**: Use conventional commit format (e.g., `feat: add new feature`, `fix: resolve bug`)
+2. **Reviewers**: Set to `MFB-Technologies-Inc/web-app-devs` team
+3. **Assignment**: Assign to the PR creator
+4. **Body Structure**: Include a "Summary" section with bullet points of changes
+5. **GitHub CLI Command Example**:
+
+  ```bash
+   gh pr create --title "fix: describe the change" --body "$(cat <<'EOF'
+   ## Summary
+   
+   - Change 1 description
+   - Change 2 description
+   - Change 3 description
+   EOF
+   )" --reviewer "MFB-Technologies-Inc/web-app-devs" --assignee "@me"
+  ```
 
 ## Repository Overview
 
