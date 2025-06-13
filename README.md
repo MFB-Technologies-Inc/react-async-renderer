@@ -116,6 +116,21 @@ Checkout the [example application](./example-app/README.md).
 - Prettier for formatting
 - SCSS for styling
 
+### Commit Messages
+
+Use the following commit format:
+
+- start the commit message with a comma separated list of a short path for each file that was changed. the path should include the parent directory name, the file name and the extension.
+- after a colon, write a short summary of the changes.
+
+Use imperative mood (e.g., "add" not "added").
+
+Example:
+
+```text
+workflows/build.yml, react-async-renderer/README.md: Update the build actions, add license agreement to the readme
+```
+
 ## License
 
 [MIT License](./LICENSE)
