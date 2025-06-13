@@ -21,4 +21,4 @@ jobs:
         env:
           PAT_TOKEN: ${{ secrets.RELEASE_PAT_TOKEN }}
           GIT_EMAIL: ${{ vars.RELEASE_GIT_EMAIL }}
-        run: ../scripts/release.sh
+        run: ./scripts/release.sh
