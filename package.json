@@ -42,6 +42,7 @@
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "test:ci": "jest --reporters=jest-standard-reporter --coverage",
     "test": "jest --watch",
+    "test:once": "jest",
     "fix-formatting": "prettier --write --config ./prettier.config.js ./src/",
     "check-formatting": "prettier --check --config ./prettier.config.js ./src/",
     "package": "node ./scripts/package.js"
