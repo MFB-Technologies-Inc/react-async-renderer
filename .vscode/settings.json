@@ -69,5 +69,20 @@
   "search.exclude": {
     "**/node_modules": true,
     "**/lib": true
-  }
+  },
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": "./prettier.config.js",
+      "text": "This is a configuration file for Prettier, a code formatter. It specifies the formatting rules to be applied to the code."
+    },
+    {
+      "file": "./LLM_INSTRUCTIONS.md",
+      "text": "This file contains instructions that coding agents (e.g., Copilot) should follow when generating code."
+    }
+  ],
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "start the commit message with a list of the file paths in the staged changes seperated by commas and ending with a colen. each file in the list should include only the parent folder and not the full path to the file, the linux path seperator, the file name and the file's extension."
+    }
+  ]
 }
