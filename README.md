@@ -92,67 +92,6 @@ These other utility functions can be used to simplify the logic around `createAs
 
 Checkout the [example application](./example-app/README.md).
 
-## Development
-
-### Commands
-
-- `npm test:once` - Run Jest tests
-- `npm run build` - Build the library
-- `npm run lint` - Run ESLint
-- `npm run typecheck` - Run TypeScript type checking
-
-### Project Structure
-
-- `src/` - Main library source code
-- `example-app/` - Demo application showing library usage
-- `scripts/` - Build and release automation scripts
-- `.github/workflows/` - CI/CD pipelines
-- Test files are in `__tests__/` directories
-
-### Code Style
-
-- TypeScript with strict mode
-- ESLint for linting
-- Prettier for formatting
-- SCSS for styling
-- Do not use magic strings
-- Do not assert as `any`, except for in test modules
-
-### Commit Messages
-
-Use the following commit format:
-
-- start the commit message with a comma separated list of a short path for each file that was changed. the path should include the parent directory name, the file name and the extension.
-- after a colon, write a short summary of the changes.
-
-Use imperative mood (e.g., "add" not "added").
-
-Example:
-
-```text
-workflows/build.yml, react-async-renderer/README.md: Update the build actions, add license agreement to the readme
-```
-
-### Pull Request Guidelines
-
-When creating pull requests:
-
-1. **Title Format**: Use conventional commit format (e.g., `feat: add new feature`, `fix: resolve bug`)
-2. **Reviewers**: Set to `MFB-Technologies-Inc/web-app-devs` team
-3. **Assignment**: Assign to the PR creator
-4. **Body Structure**: Include a "Summary" section with bullet points of changes
-5. **GitHub CLI Command Example**:
-   ```bash
-   gh pr create --title "fix: describe the change" --body "$(cat <<'EOF'
-   ## Summary
-   
-   - Change 1 description
-   - Change 2 description
-   - Change 3 description
-   EOF
-   )" --reviewer "MFB-Technologies-Inc/web-app-devs" --assignee "@me"
-   ```
-
 ## License
 
 [MIT License](./LICENSE)
