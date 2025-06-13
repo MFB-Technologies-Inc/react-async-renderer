@@ -133,6 +133,26 @@ Example:
 workflows/build.yml, react-async-renderer/README.md: Update the build actions, add license agreement to the readme
 ```
 
+### Pull Request Guidelines
+
+When creating pull requests:
+
+1. **Title Format**: Use conventional commit format (e.g., `feat: add new feature`, `fix: resolve bug`)
+2. **Reviewers**: Set to `MFB-Technologies-Inc/web-app-devs` team
+3. **Assignment**: Assign to the PR creator
+4. **Body Structure**: Include a "Summary" section with bullet points of changes
+5. **GitHub CLI Command Example**:
+   ```bash
+   gh pr create --title "fix: describe the change" --body "$(cat <<'EOF'
+   ## Summary
+   
+   - Change 1 description
+   - Change 2 description
+   - Change 3 description
+   EOF
+   )" --reviewer "MFB-Technologies-Inc/web-app-devs" --assignee "@me"
+   ```
+
 ## License
 
 [MIT License](./LICENSE)
