@@ -90,7 +90,31 @@ These other utility functions can be used to simplify the logic around `createAs
 - `getCascadedAsyncState`: Reduces a chain of asynchronous request objects down one asynchronous request object.
 - `getOptimisticAsyncLoadState`: Converts its arguments into an optimistic asynchronous request object such that if the arguments indicate a pending asynchronous request and a fulfilled asynchronous request, then the result is a fulfilled asynchronous request object.
 
-Checkout the [example application](./example/README.md).
+Checkout the [example application](./example-app/README.md).
+
+## Development
+
+### Commands
+
+- `npm test:once` - Run Jest tests
+- `npm run build` - Build the library
+- `npm run lint` - Run ESLint
+- `npm run typecheck` - Run TypeScript type checking
+
+### Project Structure
+
+- `src/` - Main library source code
+- `example-app/` - Demo application showing library usage
+- `scripts/` - Build and release automation scripts
+- `.github/workflows/` - CI/CD pipelines
+- Test files are in `__tests__/` directories
+
+### Code Style
+
+- TypeScript with strict mode
+- ESLint for linting
+- Prettier for formatting
+- SCSS for styling
 
 ## License
 
