@@ -82,7 +82,7 @@
   ],
   "github.copilot.chat.commitMessageGeneration.instructions": [
     {
-      "text": "start the commit message with a list of the file paths in the staged changes seperated by commas and ending with a colen. each file in the list should include only the parent folder and not the full path to the file, the linux path seperator, the file name and the file's extension."
+      "text": "start the commit message with a list of the file paths in the staged changes separated by commas and ending with a colon. each file in the list should include only the parent folder and not the full path to the file, the linux path separator, the file name and the file's extension."
     }
   ]
 }
