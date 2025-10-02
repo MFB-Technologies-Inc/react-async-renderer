@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "packageName": "@mfbtech/react-async-renderer",
+      "comment": "Use the proper sonarcloud github action for targeting the cloud instead of a self-hosted qube instance",
+      "type": "NONE"
+    }
+  ]
+}
