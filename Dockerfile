@@ -24,10 +24,10 @@ RUN mkdir -p -m 0700 ~/.ssh
 RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 SHELL ["/bin/bash", "--login", "-c"]
 # install nvm with a specified version of node
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash \
 && . ~/.nvm/nvm.sh \
-&& nvm install --lts=hydrogen \
-&& npm install -g npm@10.2.0
+&& nvm install --lts=iron \
+&& npm install -g npm@11.6.2
 # install npm updates
 # RUN 
 # clone repo
