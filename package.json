@@ -42,9 +42,11 @@
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "test:ci": "jest --reporters=jest-standard-reporter --coverage",
     "test": "jest --watch",
+    "test:once": "jest",
     "fix-formatting": "prettier --write --config ./prettier.config.js ./src/",
     "check-formatting": "prettier --check --config ./prettier.config.js ./src/",
-    "package": "node ./scripts/package.js"
+    "package": "node ./scripts/package.js",
+    "typecheck": "tsc --noEmit --project ./tsconfig.prod.json"
   },
   "devDependencies": {
     "@testing-library/react": "12.1.5",
