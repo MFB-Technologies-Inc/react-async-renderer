@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "packageName": "@mfbtech/react-async-renderer",
+      "comment": "Upgrade vite to v7",
+      "type": "PATCH"
+    }
+  ]
+}
