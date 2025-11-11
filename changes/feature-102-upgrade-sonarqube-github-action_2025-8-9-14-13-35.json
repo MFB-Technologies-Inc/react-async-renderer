@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "packageName": "@mfbtech/react-async-renderer",
+      "comment": "Upgrade sonarqube github action to resolve security vulnerability",
+      "type": "NONE"
+    }
+  ]
+}
