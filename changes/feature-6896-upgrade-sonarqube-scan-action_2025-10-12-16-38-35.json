@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "packageName": "@mfbtech/react-async-renderer",
+      "comment": "Upgrade SonarSource/sonarqube-scan-action to fix security vulnerability",
+      "type": "PATCH"
+    }
+  ]
+}
