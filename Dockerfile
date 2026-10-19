@@ -1,7 +1,8 @@
 FROM debian:bookworm
 ARG USERNAME=vscode
 # Add GitHub CLI repo and update, then install all packages in one RUN
-RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+RUN apt-get update && apt-get -y install ca-certificates curl \
+    && curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
     | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
     && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" > /etc/apt/sources.list.d/github-cli.list \
@@ -31,10 +32,10 @@ SHELL ["/bin/bash", "--login", "-c"]
 # install nvm with a specified version of node
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash \
 && . ~/.nvm/nvm.sh \
-&& nvm install --lts=iron \
+&& nvm install 24 \
 && npm install -g npm@11.6.2
 # install npm updates
-# RUN 
+# RUN
 # clone repo
 RUN --mount=type=ssh,uid=1002 git clone git@github.com:MFB-Technologies-Inc/react-async-renderer /home/$USERNAME/workspace/react-async-renderer
 # set working dir

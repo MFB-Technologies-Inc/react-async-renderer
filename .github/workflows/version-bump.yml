@@ -1,0 +1,44 @@
+name: version-bump
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: version-bump
+  cancel-in-progress: false
+
+jobs:
+  version-bump:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - name: Install release npm version
+        run: npm install --global npm@11.6.2
+      - run: npm ci
+      - name: Apply change files and synchronize metadata
+        run: node scripts/version-bump.cjs prepare
+      - name: Validate the proposed release
+        run: |
+          npm run check-formatting
+          npm run check-formatting:release
+          npm run lint
+          npm run typecheck
+          npm run build
+          npm run test:once -- --runInBand
+          npm run test:release
+      - name: Open release PR
+        run: node scripts/version-bump.cjs open

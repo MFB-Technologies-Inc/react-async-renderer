@@ -46,7 +46,9 @@
     "fix-formatting": "prettier --write --config ./prettier.config.js ./src/",
     "check-formatting": "prettier --check --config ./prettier.config.js ./src/",
     "package": "node ./scripts/package.js",
-    "typecheck": "tsc --noEmit --project ./tsconfig.prod.json"
+    "typecheck": "tsc --noEmit --project ./tsconfig.prod.json",
+    "test:release": "node --test scripts/*.test.cjs",
+    "check-formatting:release": "prettier --check scripts/*.cjs scripts/package.js .github/workflows/*.yml CHANGELOG.json"
   },
   "devDependencies": {
     "@testing-library/react": "12.1.5",
@@ -70,7 +72,8 @@
     "@typescript-eslint/parser": "7.6.0",
     "@typescript-eslint/eslint-plugin": "7.6.0",
     "jest-environment-jsdom": "29.7.0",
-    "@mfbtech/changelog-generator": "1.0.1"
+    "@mfbtech/changelog-generator": "1.0.1",
+    "semver": "7.6.3"
   },
   "peerDependencies": {
     "react": "^17.0.2 || 18",

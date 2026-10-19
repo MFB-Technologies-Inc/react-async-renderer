@@ -1,0 +1,170 @@
+{
+  "name": "@mfbtech/react-async-renderer",
+  "entries": [
+    {
+      "version": "2.2.2",
+      "date": "Fri, 20 September 2024 12:00:00 GMT",
+      "comments": {
+        "PATCH": [
+          {
+            "comment": "Upgrade vite from 5.2.8 to 5.4.7"
+          }
+        ]
+      }
+    },
+    {
+      "version": "2.2.1",
+      "date": "Mon, 22 July 2024 12:00:00 GMT",
+      "comments": {
+        "PATCH": [
+          {
+            "comment": "Upgrade ws from 8.16.0 to 8.17.1"
+          },
+          {
+            "comment": "Upgrade braces from 3.0.2 to 3.0.3"
+          }
+        ]
+      }
+    },
+    {
+      "version": "2.2.0",
+      "date": "Fri, 31 May 2024 15:29:00 GMT",
+      "comments": {
+        "MINOR": [
+          {
+            "comment": "Upgrade dependencies"
+          }
+        ]
+      }
+    },
+    {
+      "version": "2.1.0",
+      "date": "Fri, 1 Dec 2023 11:45:00 GMT",
+      "comments": {
+        "MINOR": [
+          {
+            "comment": "Added a title to the spinner image"
+          }
+        ],
+        "PATCH": [
+          {
+            "comment": "Resolved JSON5 security issue"
+          },
+          {
+            "comment": "Upgraded `@types/react` from 17.0.44 to 17.0.60"
+          },
+          {
+            "comment": "Changed TS config to build to ES6"
+          }
+        ]
+      }
+    },
+    {
+      "version": "2.0.0",
+      "date": "Fri, 24 Feb 2023 09:52:00 GMT",
+      "comments": {
+        "MAJOR": [
+          {
+            "comment": "Changed `AsyncRequestStatus` from an enumeration to a type"
+          }
+        ],
+        "MINOR": [
+          {
+            "comment": "Added support for React v18"
+          }
+        ],
+        "PATCH": [
+          {
+            "comment": "Resolve Json5 security warnings"
+          },
+          {
+            "comment": "Resolve build warnings concerning Sass `mathdiv`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.3.0",
+      "date": "Fri, 12 Aug 2022 09:12:00 GMT",
+      "comments": {
+        "MINOR": [
+          {
+            "comment": "Fixed the publish action"
+          },
+          {
+            "comment": "Added an example application"
+          },
+          {
+            "comment": "Remove contributing document and added the license to the readme"
+          },
+          {
+            "comment": "Restrict the files that are published"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.2.1",
+      "date": "Wed, 16 Mar 2022 01:48:17 GMT",
+      "comments": {
+        "PATCH": [
+          {
+            "comment": "Changes to accommodate modularization"
+          },
+          {
+            "comment": "Change eslint configuration."
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.2.0",
+      "date": "Thu, 20 Jan 2022 15:51:53 GMT",
+      "comments": {
+        "MINOR": [
+          {
+            "comment": "add formatting, add linting, and fix any errors."
+          },
+          {
+            "comment": "update dependencies and change pipeline yaml to use Node.js v16."
+          }
+        ],
+        "PATCH": [
+          {
+            "comment": "update redux toolkit to 1.7, typescript to 4.5"
+          },
+          {
+            "comment": "'Update pipeline'"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.1.1",
+      "date": "Tue, 26 Oct 2021 15:41:27 GMT",
+      "comments": {
+        "PATCH": [
+          {
+            "comment": "Add animated spinner"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.1.0",
+      "date": "Mon, 04 Oct 2021 20:45:24 GMT",
+      "comments": {
+        "MINOR": [
+          {
+            "comment": "add utility for optimistically converting a server SRO into an asynchronous state."
+          }
+        ],
+        "PATCH": [
+          {
+            "comment": "Re-generate pipeline script"
+          }
+        ]
+      }
+    }
+  ]
+}

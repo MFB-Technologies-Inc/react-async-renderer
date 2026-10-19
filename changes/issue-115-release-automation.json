@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "packageName": "@mfbtech/react-async-renderer",
+      "comment": "Automate release preparation, immutable version tags, and recoverable GitHub/npm publishing.",
+      "type": "PATCH"
+    }
+  ]
+}

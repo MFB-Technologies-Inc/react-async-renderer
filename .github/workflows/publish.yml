@@ -1,33 +1,90 @@
 name: publish
 
-# Run when a new GitHub release is published
 on:
-  release:
-    types: [released]
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing stable version tag to retry (for example v2.2.3)
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
 
 jobs:
   publish:
+    if: >-
+      (github.event_name == 'workflow_dispatch' &&
+       github.ref == format('refs/heads/{0}', github.event.repository.default_branch)) ||
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.merged == true &&
+       github.event.pull_request.base.ref == github.event.repository.default_branch &&
+       github.event.pull_request.head.repo.full_name == github.repository &&
+       startsWith(github.event.pull_request.head.ref, 'release/v'))
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-
-      - name: Setup node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
         with:
-          node-version: "20"
-
-      - name: Install packages
-        run: npm install
-
-      - name: Build project and dependencies
-        run: npm run build
-
-      - name: Run unit tests and generate report
-        run: npm run test:ci
-
-      - name: Publish package
-        uses: JS-DevTools/npm-publish@v3
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.merge_commit_sha || github.sha }}
+      - name: Check out existing tag for recovery
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          if [[ ! "$TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+            echo "Expected a stable v<version> tag" >&2
+            exit 1
+          fi
+          git checkout --detach "refs/tags/$TAG"
+      - uses: actions/setup-node@v7
         with:
-          token: ${{ secrets.NPM_TOKEN }}
-          access: "public"
+          node-version: "24"
+          package-manager-cache: false
+      - name: Install release npm version
+        run: npm install --global npm@11.6.2
+      - run: npm ci
+      - name: Create immutable version tag at the release merge commit
+        if: github.event_name == 'pull_request'
+        env:
+          BUMP_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          node scripts/release.cjs tag
+      - name: Validate tag and generate accumulated release notes
+        id: release
+        env:
+          RETRY_TAG: ${{ inputs.tag }}
+        run: |
+          export RELEASE_TAG="${RETRY_TAG:-v$(node -p "require('./package.json').version")}"
+          node scripts/release.cjs notes
+      - name: Build, test, and package the tagged commit
+        if: steps.release.outputs.completed != 'true'
+        run: |
+          npm run check-formatting
+          npm run check-formatting:release
+          npm run lint
+          npm run typecheck
+          npm run build
+          npm run test:once -- --runInBand
+          npm run test:release
+          npm run package
+      - name: Upload draft artifact, publish to npm using OIDC, then finalize GitHub
+        if: steps.release.outputs.completed != 'true'
+        env:
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          # npm provenance reads these variables for the checked-out source.
+          # Preserve the workflow identity while recording the tag on manual retries.
+          GITHUB_SHA="$(git rev-parse HEAD)" GITHUB_REF="refs/tags/$RELEASE_TAG" node scripts/publish.cjs
