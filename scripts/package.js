@@ -9,8 +9,6 @@ const targetPackDirectory = path.join(__dirname, "..", "packed")
 const npmPackCommand = `npm pack --pack-destination ${targetPackDirectory}`
 
 ;(function main() {
-  fs.mkdir(targetPackDirectory, { recursive: true }, err => {
-    if (err) throw err
-  })
+  fs.mkdirSync(targetPackDirectory, { recursive: true })
   childProcess.execSync(npmPackCommand)
 })()

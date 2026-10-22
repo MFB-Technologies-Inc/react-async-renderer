@@ -9,5 +9,7 @@
 1. Install the "Remote Development" extension pack in VS Code.
 1. Navigate to Remote Explorer in the VSCode sidebar.
 1. Select Containers from the drop down at the top.
-1. Attach to the align-dev-env container.
-1. Click Open Folder and open the align-ts folder.
+1. Attach to the mfb-async-renderer-dev-env-active container.
+1. Click Open Folder and open the react-async-renderer folder.
+
+The image uses Node 24 and npm 11.6.2, matching release tooling. This does not change the library's React peer dependencies or TypeScript output target.

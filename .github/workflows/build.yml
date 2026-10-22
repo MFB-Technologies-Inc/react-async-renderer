@@ -16,22 +16,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # Disabling shallow clone is recommended for improving relevancy of reporting
           fetch-depth: 0
           ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "24"
+          package-manager-cache: false
+
+      - name: Install npm
+        run: npm install --global npm@11.6.2
 
       - name: Install packages
-        run: npm install
+        run: npm ci
 
       - name: Verify change files
-        run: npx ccg change --verify
+        if: ${{ !startsWith(github.head_ref, 'release/v') }}
+        run: npx --no-install ccg change --verify
+
+      - name: Verify release metadata
+        if: startsWith(github.head_ref, 'release/v')
+        run: node scripts/release.cjs metadata
+
+      - name: Lint and typecheck
+        run: |
+          npm run lint
+          npm run typecheck
+
+      - name: Test release automation
+        run: npm run test:release
+
+      - name: Check release formatting
+        run: npm run check-formatting:release
 
       - name: Check formatting
         run: npm run check-formatting
@@ -43,7 +63,7 @@ jobs:
         run: npm run test:ci
 
       - name: SonarQube Cloud Scan
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@v8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed for PR decoration
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # SonarCloud user/project analysis token
