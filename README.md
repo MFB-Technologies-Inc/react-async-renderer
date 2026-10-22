@@ -147,9 +147,15 @@ publication then run automatically; no separate publication approval is added.
 4. **publish** checks the exact merge commit, its ancestry, the version increase,
    branch name, and matching package/lockfile/changelog metadata. It creates
    `v<version>` at that commit. Commit message wording has no effect.
-5. That tagged commit is built, tested, and packed. The tarball is uploaded to a
-   draft GitHub release, and the same file is published to npm with public access.
+5. That tagged commit is built, tested, and packed in a separate read-only job
+   without npm OIDC permission or persisted checkout credentials. Its tarball is
+   passed through a workflow artifact to the publishing job, which uploads it to
+   a draft GitHub release and publishes the same file to npm with public access.
    Only after npm integrity verification does the GitHub release become public.
+   Tag preparation has repository write access but no OIDC permission; only the
+   publishing job has both. Neither privileged job installs project dependencies
+   or runs build/test scripts. Their isolated, pinned release dependency and npm
+   installations disable lifecycle scripts.
 
 `CHANGELOG.json` contains the migrated historical versions and is the generator's
 source of truth. Historical dates and comments are preserved; generated Markdown
