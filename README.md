@@ -151,7 +151,10 @@ publication then run automatically; no separate publication approval is added.
    without npm OIDC permission or persisted checkout credentials. Its tarball is
    passed through a workflow artifact to the publishing job, which uploads it to
    a draft GitHub release and publishes the same file to npm with public access.
-   Only after npm integrity verification does the GitHub release become public.
+   The GitHub release becomes public as soon as `npm publish` succeeds; the
+   workflow does not wait for npm to finish processing the version, which can
+   take a few minutes. Before publishing, an existing npm version with a
+   different integrity stops the workflow before any change.
    Tag preparation has repository write access but no OIDC permission; only the
    publishing job has both. Neither privileged job installs project dependencies
    or runs build/test scripts. Their isolated, pinned release dependency and npm
@@ -190,9 +193,11 @@ publish a package.
 - **After a draft upload:** recovery downloads the original artifact and compares
   it with the rebuild. A mismatch stops publication; do not replace an already
   published artifact. Keep release tooling/dependencies fixed when investigating.
-- **After npm succeeds:** recovery verifies npm's integrity against the tarball,
-  skips publishing the existing version, and finishes GitHub publication. Registry
-  errors fail explicitly. If registry propagation delays verification, retry later.
+- **After npm succeeds:** before publishing, recovery checks npm's integrity
+  against the tarball. An existing matching version is not published again, and
+  the GitHub release is finished. A different integrity or a registry error fails
+  explicitly. If `npm publish` or finalizing fails, the GitHub release stays a
+  draft; rerun the workflow as above.
 - **Already public:** rerunning a completed release is a no-op. A bad published
   package needs a new change file and version; npm versions and release tags must
   not be rewritten. Recovery refuses to publish an older pending version after a
