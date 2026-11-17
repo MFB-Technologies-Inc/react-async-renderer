@@ -17,6 +17,8 @@ async function registryIntegrity(version, request = fetch) {
   const response = await request(
     `${REGISTRY}/${encodeURIComponent(PACKAGE_NAME)}/${version}`,
     {
+      headers: { "Cache-Control": "no-cache" },
+      cache: "no-store",
       signal: AbortSignal.timeout(30000)
     }
   )
@@ -35,16 +37,14 @@ async function registryIntegrity(version, request = fetch) {
 }
 
 // Keep the publication sequence injectable so failures can be tested without publishing.
+// npm can take minutes to serve a new version, so the release is finalized as
+// soon as `npm publish` succeeds instead of waiting for the registry.
 async function publishArtifact({ digest, lookup, upload, publish, finalize }) {
   const existing = await lookup()
   if (existing && existing !== digest)
     throw new Error("Existing npm version has different artifact integrity.")
   await upload()
   if (!existing) await publish()
-  if ((await lookup()) !== digest)
-    throw new Error(
-      "Published npm integrity does not match the release artifact. Retry after registry propagation."
-    )
   await finalize()
 }
 

@@ -37,10 +37,10 @@ function publication(options = {}) {
   }
 }
 
-test("uploads the artifact before npm and finalizes only after verifying npm integrity", async () => {
+test("uploads the artifact, publishes to npm, then finalizes without waiting for the registry", async () => {
   const { calls, args } = publication()
   await publishArtifact(args)
-  assert.deepEqual(calls, ["lookup", "upload", "publish", "lookup", "finalize"])
+  assert.deepEqual(calls, ["lookup", "upload", "publish", "finalize"])
 })
 
 test("publication failures leave GitHub unpublished", async () => {
@@ -49,6 +49,8 @@ test("publication failures leave GitHub unpublished", async () => {
     await assert.rejects(publishArtifact(args))
     assert.ok(!calls.includes("finalize"))
     if (flag !== "publishFails") assert.ok(!calls.includes("publish"))
+    if (flag === "publishFails")
+      assert.deepEqual(calls, ["lookup", "upload", "publish"])
   }
 })
 
@@ -57,7 +59,7 @@ test("recovery after GitHub finalization failure skips an existing npm version",
   await assert.rejects(publishArtifact(first.args), /finalize/)
   const retry = publication({ existing: first.args.digest })
   await publishArtifact(retry.args)
-  assert.deepEqual(retry.calls, ["lookup", "upload", "lookup", "finalize"])
+  assert.deepEqual(retry.calls, ["lookup", "upload", "finalize"])
 })
 
 test("conflicting npm integrity blocks any release mutation", async () => {
@@ -68,11 +70,14 @@ test("conflicting npm integrity blocks any release mutation", async () => {
   assert.deepEqual(calls, ["lookup"])
 })
 
-test("registry propagation or unexpected integrity prevents GitHub finalization", async () => {
+test("finalizes after one publish when the registry has not propagated the version", async () => {
   const { calls, args } = publication()
-  args.lookup = async () => null
-  await assert.rejects(publishArtifact(args), /does not match/)
-  assert.ok(!calls.includes("finalize"))
+  args.lookup = async () => {
+    calls.push("lookup")
+    return null
+  }
+  await publishArtifact(args)
+  assert.deepEqual(calls, ["lookup", "upload", "publish", "finalize"])
 })
 
 test("registry lookup only treats HTTP 404 as an absent version", async () => {
@@ -100,11 +105,13 @@ test("registry lookup only treats HTTP 404 as an absent version", async () => {
     /invalid package/
   )
   assert.equal(
-    await registryIntegrity("2.2.3", async url => {
+    await registryIntegrity("2.2.3", async (url, options) => {
       assert.equal(
         url,
         "https://registry.npmjs.org/%40mfbtech%2Freact-async-renderer/2.2.3"
       )
+      assert.equal(options.headers["Cache-Control"], "no-cache")
+      assert.equal(options.cache, "no-store")
       return {
         ok: true,
         json: async () => ({
