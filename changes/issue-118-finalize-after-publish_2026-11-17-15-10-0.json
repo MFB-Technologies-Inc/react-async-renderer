@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "packageName": "@mfbtech/react-async-renderer",
+      "comment": "Make the GitHub release public as soon as npm publish succeeds, without waiting for registry propagation.",
+      "type": "NONE"
+    }
+  ]
+}
