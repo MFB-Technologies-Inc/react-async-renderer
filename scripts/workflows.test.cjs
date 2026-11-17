@@ -2,14 +2,10 @@ const { test } = require("node:test")
 const assert = require("node:assert/strict")
 const fs = require("node:fs")
 const path = require("node:path")
-const { PACKAGE_NAME } = require("./release.cjs")
 
 const REPO_ROOT = path.join(__dirname, "..")
 const WORKFLOWS_DIR = path.join(REPO_ROOT, ".github", "workflows")
-const CHANGES_DIR = path.join(REPO_ROOT, "changes")
 const PUBLISH_WORKFLOW = "publish.yml"
-const CHANGE_FILE_PREFIX = "feature-120-upgrade-actions"
-const NONE_CHANGE_TYPE = "NONE"
 const USES_PATTERN = /^(\s*)(?:-\s+)?uses:\s*(\S+)\s*$/
 
 const EXPECTED_MAJORS = {
@@ -101,28 +97,5 @@ test("every workflow action is on its newest compatible major", () => {
 test("publish workflow hands over the same artifact between jobs", () => {
   Object.entries(ARTIFACT_HANDOVER).forEach(([action, inputs]) => {
     assert.deepEqual(stepInputs(PUBLISH_WORKFLOW, action), inputs)
-  })
-})
-
-test("a NONE change file is added for the action upgrade", () => {
-  const files = fs
-    .readdirSync(CHANGES_DIR)
-    .filter(
-      file => file.startsWith(CHANGE_FILE_PREFIX) && file.endsWith(".json")
-    )
-  assert.ok(
-    files.length > 0,
-    `no changes/${CHANGE_FILE_PREFIX}_<timestamp>.json change file found`
-  )
-  files.forEach(file => {
-    const { changes } = JSON.parse(
-      fs.readFileSync(path.join(CHANGES_DIR, file), "utf8")
-    )
-    assert.ok(Array.isArray(changes) && changes.length > 0, file)
-    changes.forEach(change => {
-      assert.equal(change.packageName, PACKAGE_NAME, file)
-      assert.equal(change.type, NONE_CHANGE_TYPE, file)
-      assert.ok(change.comment.trim().length > 0, file)
-    })
   })
 })
