@@ -1,6 +1,7 @@
 # CLAUDE.md
 
 @./LLM_INSTRUCTIONS.md
+@./AGENTS.md
 
 ## Remote Repository Configuration
 
@@ -22,16 +23,28 @@
   1. **Title Format**: Use conventional commit format (e.g., `feat: add new feature`, `fix: resolve bug`)
   2. **Reviewers**: Set to `MFB-Technologies-Inc/web-app-devs` team
   3. **Assignment**: Assign to the PR creator
-  4. **Body Structure**: Include a "Summary" section with bullet points of changes
+  4. **Body Structure**: Follow the PR sections in `AGENTS.md`
   5. **GitHub CLI Command Example**:
 
     ```bash
      gh pr create --title "fix: describe the change" --body "$(cat <<'EOF'
-     ## Summary
+     ## What
+     
+     Why this change is needed, in a sentence or two.
+     
+     ## Public facing changes
+     
+     None, or what users of the package will notice.
+     
+     ## Changes
      
      - Change 1 description
      - Change 2 description
-     - Change 3 description
+     
+     ## PR review findings
+     
+     - Fixed: finding and fix
+     - Not fixed: finding and reason
      EOF
      )" --reviewer "MFB-Technologies-Inc/web-app-devs" --assignee "@me"
     ```
