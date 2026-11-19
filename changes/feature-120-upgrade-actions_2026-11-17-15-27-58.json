@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "packageName": "@mfbtech/react-async-renderer",
+      "comment": "Upgrade artifact actions in the publish workflow to Node 24 majors.",
+      "type": "NONE"
+    }
+  ]
+}
