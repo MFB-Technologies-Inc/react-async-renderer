@@ -30,9 +30,7 @@ export type OnCompletedSuccessfully<TArgs extends OnCompletedSuccessfullyArgs> =
  * The type for the on completed successfully callback data argument.
  */
 export type OnCompletedSuccessfullyArgs =
-  | Record<any, any>
-  | null
-  | OnCompletedSuccessfullyWithoutArgs
+  Record<any, any> | null | OnCompletedSuccessfullyWithoutArgs
 
 /**
  * The accepted arguments of createAsyncRenderer.
