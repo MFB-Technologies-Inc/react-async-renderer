@@ -1,8 +1,26 @@
-# Change Log - @mfbtech/react-async-renderer
+# Changelog - @mfbtech/react-async-renderer
 
-This log was last generated on Wed, 16 Mar 2022 01:48:17 GMT and should not be manually modified.
+This log was last generated on Mon, 23 Nov 2026 21:13:13 GMT and should not be manually modified.
+
+## 2.2.3
+
+Mon, 23 Nov 2026 21:13:13 GMT
+
+### Dependency changes
+
+- Bump dev dependencies to the latest minor/patch within their current majors.
+
+### Patch changes
+
+- Upgrade SonarSource/sonarqube-scan-action to fix security vulnerability
+- Upgrade form-data npm dependency to v4.0.4
+- Upgrade vite to v7
+- Checkout the PR branch in the build pipeline and fix the deprecated sonar cloud action
+- Fixed release script path in release action and updated action and package dependencies
+- Automate release preparation, immutable version tags, and recoverable GitHub/npm publishing.
 
 ## 2.2.2
+
 Fri, 20 September 2024 12:00:00 GMT
 
 ### Patch changes
@@ -10,6 +28,7 @@ Fri, 20 September 2024 12:00:00 GMT
 - Upgrade vite from 5.2.8 to 5.4.7
 
 ## 2.2.1
+
 Mon, 22 July 2024 12:00:00 GMT
 
 ### Patch changes
@@ -18,6 +37,7 @@ Mon, 22 July 2024 12:00:00 GMT
 - Upgrade braces from 3.0.2 to 3.0.3
 
 ## 2.2.0
+
 Fri, 31 May 2024 15:29:00 GMT
 
 ### Minor changes
@@ -25,6 +45,7 @@ Fri, 31 May 2024 15:29:00 GMT
 - Upgrade dependencies
 
 ## 2.1.0
+
 Fri, 1 Dec 2023 11:45:00 GMT
 
 ### Minor changes
@@ -38,6 +59,7 @@ Fri, 1 Dec 2023 11:45:00 GMT
 - Changed TS config to build to ES6
 
 ## 2.0.0
+
 Fri, 24 Feb 2023 09:52:00 GMT
 
 ### Major changes
@@ -54,6 +76,7 @@ Fri, 24 Feb 2023 09:52:00 GMT
 - Resolve build warnings concerning Sass `mathdiv`
 
 ## 1.3.0
+
 Fri, 12 Aug 2022 09:12:00 GMT
 
 ### Minor changes
@@ -64,14 +87,16 @@ Fri, 12 Aug 2022 09:12:00 GMT
 - Restrict the files that are published
 
 ## 1.2.1
+
 Wed, 16 Mar 2022 01:48:17 GMT
 
-### Patches
+### Patch changes
 
 - Changes to accommodate modularization
 - Change eslint configuration.
 
 ## 1.2.0
+
 Thu, 20 Jan 2022 15:51:53 GMT
 
 ### Minor changes
@@ -79,25 +104,27 @@ Thu, 20 Jan 2022 15:51:53 GMT
 - add formatting, add linting, and fix any errors.
 - update dependencies and change pipeline yaml to use Node.js v16.
 
-### Patches
+### Patch changes
 
 - update redux toolkit to 1.7, typescript to 4.5
 - 'Update pipeline'
 
 ## 1.1.1
+
 Tue, 26 Oct 2021 15:41:27 GMT
 
-### Patches
+### Patch changes
 
 - Add animated spinner
 
 ## 1.1.0
+
 Mon, 04 Oct 2021 20:45:24 GMT
 
 ### Minor changes
 
 - add utility for optimistically converting a server SRO into an asynchronous state.
 
-### Patches
+### Patch changes
 
 - Re-generate pipeline script

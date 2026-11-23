@@ -1,9 +1,0 @@
-{
-  "changes": [
-    {
-      "packageName": "@mfbtech/react-async-renderer",
-      "comment": "Checkout the PR branch in the build pipeline and fix the deprecated sonar cloud action",
-      "type": "PATCH"
-    }
-  ]
-}

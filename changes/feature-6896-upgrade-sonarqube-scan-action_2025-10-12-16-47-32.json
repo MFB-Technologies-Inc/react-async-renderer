@@ -1,9 +1,0 @@
-{
-  "changes": [
-    {
-      "packageName": "@mfbtech/react-async-renderer",
-      "comment": "Upgrade form-data npm dependency to v4.0.4",
-      "type": "PATCH"
-    }
-  ]
-}

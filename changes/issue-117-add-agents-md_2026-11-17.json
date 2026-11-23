@@ -1,9 +1,0 @@
-{
-  "changes": [
-    {
-      "packageName": "@mfbtech/react-async-renderer",
-      "comment": "Add AGENTS.md defining the agentic SDLC",
-      "type": "NONE"
-    }
-  ]
-}

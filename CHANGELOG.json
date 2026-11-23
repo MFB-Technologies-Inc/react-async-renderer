@@ -2,6 +2,57 @@
   "name": "@mfbtech/react-async-renderer",
   "entries": [
     {
+      "version": "2.2.3",
+      "date": "Mon, 23 Nov 2026 21:13:13 GMT",
+      "comments": {
+        "NONE": [
+          {
+            "comment": "Use the proper sonarcloud github action for targeting the cloud instead of a self-hosted qube instance"
+          },
+          {
+            "comment": "Upgrade sonarqube github action to resolve security vulnerability"
+          },
+          {
+            "comment": "Make the GitHub release public as soon as npm publish succeeds, without waiting for registry propagation."
+          },
+          {
+            "comment": "Upgrade artifact actions in the publish workflow to Node 24 majors."
+          },
+          {
+            "comment": "Add changelog generator as a development tool"
+          },
+          {
+            "comment": "Add AGENTS.md defining the agentic SDLC"
+          }
+        ],
+        "PATCH": [
+          {
+            "comment": "Upgrade SonarSource/sonarqube-scan-action to fix security vulnerability"
+          },
+          {
+            "comment": "Upgrade form-data npm dependency to v4.0.4"
+          },
+          {
+            "comment": "Upgrade vite to v7"
+          },
+          {
+            "comment": "Checkout the PR branch in the build pipeline and fix the deprecated sonar cloud action"
+          },
+          {
+            "comment": "Fixed release script path in release action and updated action and package dependencies"
+          },
+          {
+            "comment": "Automate release preparation, immutable version tags, and recoverable GitHub/npm publishing."
+          }
+        ],
+        "DEPENDENCY": [
+          {
+            "comment": "Bump dev dependencies to the latest minor/patch within their current majors."
+          }
+        ]
+      }
+    },
+    {
       "version": "2.2.2",
       "date": "Fri, 20 September 2024 12:00:00 GMT",
       "comments": {
