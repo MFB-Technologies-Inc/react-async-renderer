@@ -1,9 +1,0 @@
-{
-  "changes": [
-    {
-      "packageName": "@mfbtech/react-async-renderer",
-      "comment": "Bump dev dependencies to the latest minor/patch within their current majors.",
-      "type": "DEPENDENCY"
-    }
-  ]
-}

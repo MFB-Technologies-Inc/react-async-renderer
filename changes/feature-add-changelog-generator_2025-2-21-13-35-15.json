@@ -1,9 +1,0 @@
-{
-  "changes": [
-    {
-      "packageName": "@mfbtech/react-async-renderer",
-      "comment": "Add changelog generator as a development tool",
-      "type": "NONE"
-    }
-  ]
-}
