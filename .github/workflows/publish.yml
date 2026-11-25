@@ -149,6 +149,5 @@ jobs:
       - name: Upload draft artifact, publish to npm using OIDC, then finalize GitHub
         if: steps.release.outputs.completed != 'true'
         run: |
-          # npm provenance reads these variables for the checked-out source.
-          # Preserve the workflow identity while recording the tag on manual retries.
-          GITHUB_SHA="$(git rev-parse HEAD)" GITHUB_REF="refs/tags/$RELEASE_TAG" node scripts/publish.cjs
+          # npm checks provenance against the OIDC certificate, so keep the runner's own ref and sha.
+          node scripts/publish.cjs

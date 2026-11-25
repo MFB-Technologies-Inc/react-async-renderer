@@ -1,0 +1,9 @@
+{
+  "changes": [
+    {
+      "packageName": "@mfbtech/react-async-renderer",
+      "comment": "Stop overriding GITHUB_REF and GITHUB_SHA in the publish workflow so npm accepts the provenance.",
+      "type": "NONE"
+    }
+  ]
+}

@@ -187,8 +187,9 @@ publish a package.
 - **After tagging:** rerun the publish workflow, or dispatch **publish** on `main`
   with the existing tag (for example `v2.2.3`). Manual recovery never creates or
   moves tags. Later commits on `main` do not change which commit is released.
-  npm provenance records the checked-out tag and commit while retaining the
-  identity of the workflow performing recovery. Recovery applies to tags created
+  npm provenance records the recovery workflow run (`main` and its commit); the
+  tarball is still built from the tag, and the tag and draft-artifact checks are
+  unchanged. Recovery applies to tags created
   with this automation; older tags lack its scripts.
 - **After a draft upload:** recovery downloads the original artifact and compares
   it with the rebuild. A mismatch stops publication; do not replace an already
